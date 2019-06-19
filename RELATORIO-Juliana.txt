@@ -1,0 +1,12 @@
+Data		; Horas Trabalhadas	; Tipo da Tarefa		; Descrição da Tarefa
+
+21/04/2019	;  2h			; Estudar			; Estudar enunciado do trabalho	
+21/04/2019	;  2h			; Estudar			; Aprendendo a instalar/utilizar o arcabouço		
+21/04/2019	;  3h			; Especificar os módulos	; Decidido quais módulos seriam feitos e divisão do trabalho		
+23/04/2019	;  2h			; Revisar especificações	; Confirmando se as especificações do módulo casa estão corretas
+24/04/2019	;  1h			; Revisar especificações	; Revisando especificações depois de comentário do grupo		
+26/04/2019	;  4h			; Codificar módulo		; Começando a codificar o módulo casa		
+28/04/2019	;  1h			; Codificar módulo		; Acabando de codificar o módulo casa
+01/05/2019	;  5h			; Revisar código do módulo	; Corrigindo erros do módulo casa e documentando os módulos peca e casa
+02/05/2019	;  4h			; Revisar código do módulo	; Documentando os módulos ListaCirc e Tabuleiro			
+12/05/2019	;  3h			; Revisar código do módulo	; Documentando os módulos de TSTPEC, TSTLisCirc e TSTCAS			

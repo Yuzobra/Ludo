@@ -1,0 +1,22 @@
+[Diretorios]
+
+Nome        =  TesteCasa
+PathDefault =  ..\Fontes
+err         =  ..\Err
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+TSTCAS
+Casa
+
+[BuildInicio]
+/OUT:..\Exe\TesteCasa.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

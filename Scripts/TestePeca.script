@@ -1,0 +1,120 @@
+// Script:    TesteCasa.script
+// Autor:     Victor Hugo COMPLETAR
+// Data:      PREENCHER
+// Propósito: Testar superficialmente o módulo Casa
+//
+
+==Inicializar valores 
+=declararparm peca0		int 0
+=declararparm peca1 		int 1
+=declararparm peca2 		int 2
+=declararparm peca3 		int 3
+=declararparm peca4 		int 4
+=declararparm peca5 		int 5
+=declararparm peca6 		int 6
+=declararparm peca7 		int 7
+=declararparm peca8 		int 8
+=declararparm peca9 		int 9
+=declararparm peca10 		int 10
+=declararparm peca11 		int 11
+=declararparm peca12 		int 12
+=declararparm peca13 		int 13
+=declararparm peca14 		int 14
+=declararparm peca15 		int 15
+=declararparm peca16 		int 16
+=declararparm peca17 		int 17
+=declararparm peca18 		int 18
+=declararparm peca19 		int 19
+=declararparm peca20 		int 20
+
+=declararparm p1 		int 1
+=declararparm p2 		int 2
+=declararparm p3 		int 3
+=declararparm p4 		int 4
+
+=declararparm red		int 0
+=declararparm blue 		int 1
+=declararparm green 		int 2
+=declararparm yellow 		int 3
+
+=declararparm   OK             int  0
+=declararparm   FaltouMemoria  int  1
+=declararparm   ParmIncorretos int  2
+
+==Criar Peca Red
+=criapeca peca0		red		p1
+=criapeca peca1		red		p2
+=criapeca peca2		red		p3
+=criapeca peca3		red		p4
+
+==Criar Peca Blue
+=criapeca peca4		blue 		p1
+=criapeca peca5		blue 		p2
+=criapeca peca6		blue 		p3
+=criapeca peca7		blue 		p4
+
+==Criar Peca Green
+=criapeca peca9		green 	p1
+=criapeca peca10	green 	p2
+=criapeca peca11	green 	p3
+=criapeca peca12	green 	p4
+
+==Criar Peca Yellow
+=criapeca peca13	yellow 	p1
+=criapeca peca14	yellow 	p2
+=criapeca peca15	yellow 	p3
+=criapeca peca16	yellow 	p4
+
+==Criar Pecas de Cada Cor
+=criapeca peca17	red	p1
+=criapeca peca18	blue 	p2
+=criapeca peca19	green 	p3
+=criapeca peca20	yellow 	p4
+
+==Destruir Peca
+=destroipeca peca17
+=destroipeca peca18
+=destroipeca peca19
+=destroipeca peca20
+
+==Retornar Numero Peca
+=retornanumpeca	peca0	p1
+=retornanumpeca	peca1	p2
+=retornanumpeca	peca2	p3
+=retornanumpeca	peca3	p4
+
+=retornanumpeca	peca4	p1
+=retornanumpeca	peca5	p2
+=retornanumpeca	peca6	p3
+=retornanumpeca	peca7	p4
+
+=retornanumpeca	peca9	p1
+=retornanumpeca	peca10	p2
+=retornanumpeca	peca11	p3
+=retornanumpeca	peca12	p4
+
+=retornanumpeca	peca13	p1
+=retornanumpeca	peca14	p2
+=retornanumpeca	peca15	p3
+=retornanumpeca	peca16	p4
+
+==Retorna Cor Peca
+=retornacorpeca	peca0	red
+=retornacorpeca	peca1	red
+=retornacorpeca	peca2	red
+=retornacorpeca	peca3	red
+
+=retornacorpeca	peca4	blue 
+=retornacorpeca	peca5	blue
+=retornacorpeca	peca6	blue
+=retornacorpeca	peca7	blue
+
+=retornacorpeca	peca9	green
+=retornacorpeca	peca10	green
+=retornacorpeca	peca11	green
+=retornacorpeca	peca12	green
+
+=retornacorpeca	peca13	yellow
+=retornacorpeca	peca14	yellow
+=retornacorpeca	peca15	yellow
+=retornacorpeca	peca16	yellow

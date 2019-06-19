@@ -1,0 +1,122 @@
+// Script:    TesteTabuleiro.script
+// Autor:     Victor Hugo Silva Lima
+// Data:      02/abr/2008
+// Propósito: Testar o modulo tabuleiro
+//
+
+== Inicializar valores
+=declararparm   tab0  int 0
+=declararparm   tab1  int 1
+=declararparm   tab2  int 2
+=declararparm   tab3  int 3
+=declararparm   tab4  int 4
+=declararparm   tab5  int 5
+=declararparm   tab6  int 6
+=declararparm   tab7  int 7
+=declararparm   tab8  int 8
+=declararparm   tab9  int 9
+=declararparm   tab10  int 10
+=declararparm   tab11  int 11
+=declararparm   tab12  int 12
+=declararparm   tab13  int 13
+=declararparm   tab14  int 14
+=declararparm   tab15  int 15
+=declararparm   tab16  int 16
+=declararparm   tab17  int 17
+=declararparm   tab18  int 18
+
+
+=declararparm jog2 int 2
+=declararparm jog3 int 3
+=declararparm jog4 int 4
+
+=declararparm pec1 int 1
+=declararparm pec2 int 2
+=declararparm pec3 int 3
+=declararparm pec4 int 4
+
+=declararparm red	int 0
+=declararparm blue 	int 1
+=declararparm green 	int 2
+=declararparm yellow 	int 3
+=declararparm white 	int 4
+
+
+
+=declararparm   OK             	int  0
+=declararparm   FaltouMemoria	int  1
+=declararparm   ParmIncorreto	int  2
+
+
+
+==Criar Tabuleiro
+=criatabuleiro	tab0		OK
+=criatabuleiro	tab1		OK
+=criatabuleiro	tab2		OK
+=criatabuleiro	tab3		OK
+=criatabuleiro	tab4		OK
+=criatabuleiro	tab5		OK
+=criatabuleiro	tab6		OK
+=criatabuleiro	tab7		OK
+=criatabuleiro	tab8		OK
+=criatabuleiro	tab9		OK
+=criatabuleiro	tab10		OK
+=criatabuleiro	tab11		OK
+=criatabuleiro	tab12		OK
+=criatabuleiro	tab13		OK
+=criatabuleiro	tab14		OK
+=criatabuleiro	tab15		OK
+=criatabuleiro	tab16		OK
+=criatabuleiro	tab17		OK
+=criatabuleiro	tab18		OK
+
+
+==Destroi Tabuleiro
+=destroitabuleiro	tab0		OK
+
+
+==Monta Tabuleiro corretamente
+=montatabuleiro	tab1	jog2	red blue white white		OK
+=montatabuleiro	tab2	jog3	red blue green white		OK
+=montatabuleiro	tab3	jog4	red blue green yellow		OK
+
+=montatabuleiro	tab4	jog4	yellow green red blue		OK
+
+==Monta Tabuleiro incorretamente
+=montatabuleiro	tab5	jog2	white blue white yellow		ParmIncorreto
+=montatabuleiro	tab6	jog3	white blue green white		ParmIncorreto
+=montatabuleiro	tab7	jog4	red white green white		ParmIncorreto
+=montatabuleiro	tab8	jog2	white white green yellow	ParmIncorreto
+=montatabuleiro	tab9	jog3	red white green yellow		ParmIncorreto
+
+=montatabuleiro	tab10	jog4	red blue white yellow		ParmIncorreto
+=montatabuleiro	tab11	jog2	white blue white white		ParmIncorreto
+=montatabuleiro	tab12	jog3	red blue white white		ParmIncorreto
+=montatabuleiro	tab13	jog4	red blue white white		ParmIncorreto
+
+=montatabuleiro	tab14	jog2	red blue white white		OK
+=montatabuleiro	tab15	jog3	red blue white white		ParmIncorreto
+=montatabuleiro	tab16	jog4	red blue white white		ParmIncorreto
+
+	
+==Mover Peca em um tabuleiro montado
+=moverpeca tab1 1 red pec1 OK
+=moverpeca tab1 10 red pec1 OK
+
+
+==Mover Peca em um tabuleiro montado, mas que não existe tal cor
+=moverpeca tab1 1 green pec1 ParmIncorreto
+
+==Mover Peca uma quantidade menor ou igual a 0
+=moverpeca tab1 0 red pec1 ParmIncorreto
+=moverpeca tab1 -5 red pec1 ParmIncorreto
+
+==Retorna Peca para Casa Inicial
+=retornacasainicial tab1 red pec1 OK
+
+
+==Retorna Peca já na casa Inicial, para a casa Inicial
+=retornacasainicial tab1 red pec4 OK
+
+
+// fim

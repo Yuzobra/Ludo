@@ -1,0 +1,20 @@
+[Diretorios]
+
+Nome        =  Ludo
+PathDefault =  .
+err         =  .
+
+[Modulos]
+Peca
+Casa
+LISTA
+ListaCirc
+Tabuleiro
+Main
+
+[BuildInicio]
+/OUT:Ludo.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[Fim]

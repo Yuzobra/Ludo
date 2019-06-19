@@ -1,0 +1,26 @@
+[Diretorios]
+
+Nome        =  TesteTabuleiro
+PathDefault =  ..\Fontes
+err         =  ..\Err
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+TSTTAB
+Tabuleiro
+Casa
+Peca
+Lista
+ListaCirc
+
+[BuildInicio]
+/OUT:..\Exe\TesteTabuleiro.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

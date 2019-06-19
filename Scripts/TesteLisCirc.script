@@ -1,0 +1,114 @@
+// Script:    TesteLista.script
+// Autor:     Victor Hugo Silva Lima
+// Data:      02/abr/2008
+// Proposito: Testar superficialmente o modulo lista generica duplamente encadeada
+//
+
+== Inicializar valores
+=declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
+
+=declararparm   str0    string  "abcdefg"
+=declararparm   str1    string  "qwerty"
+=declararparm   str2    string  "xxx"
+=declararparm   str3    string  "1234"
+
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+== Criar as listas
+=criarlista      lista0
+=criarlista      lista1 
+
+== Verificar ObterValor relativo a lista vazia
+=obtervalorelem  lista0   "???"     pNULL
+=obtervalorelem  lista1   "???"     pNULL
+
+== Inserir elemento em lista vazia
+=inselemantes    lista0   str0   OK
+=obtervalorelem  lista0   str0   pNaoNULL
+=inselemantes    lista1   str1   OK
+=obtervalorelem  lista1   str1   pNaoNULL
+
+
+== Inserir elemento apos primeiro
+=inselemapos     lista0   str1   OK
+=obtervalorelem  lista0   str1   pNaoNULL
+
+== Inserir elemento antes do ltimo
+=inselemantes    lista0   str2   OK
+=obtervalorelem  lista0   str2   pNaoNULL
+
+== Excluir elemento do meio
+=obtervalorelem  lista0   str2   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento do inicio
+=obtervalorelem  lista0   str0   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento final, unico 
+=obtervalorelem  lista0   str1   pNaoNULL
+=excluirelem     lista0             OK
+
+== Ver se a lista ficou vazia
+=obtervalorelem  lista0   "???"     pNULL
+
+== Destruir a lista
+=destruirlista   lista0
+=destruirlista   lista1
+
+== Criar uma lista com dois elementos
+=criarlista      lista1 
+=inselemapos     lista1   str0   OK
+=inselemapos     lista1   str1   OK
+
+== Esvaziar a lista e ver se ficou vazia
+=esvaziarlista   lista1
+=obtervalorelem  lista1   "???"     pNULL
+
+== Destruir a lista
+=destruirlista   lista1
+
+== Criar uma lista com quatro elementos
+=criarlista      lista2 
+=inselemapos     lista2   str0   OK
+=inselemapos     lista2   str1   OK
+=inselemapos     lista2   str2   OK
+=inselemapos     lista2   str3   OK
+
+== Verificar a lista de tras para diante
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str2   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str1   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str0   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str3   pNaoNULL
+
+== Verificar a lista de frente para tras
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str0   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str1   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str2   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   1      OK
+
+
+== Destruir a lista
+=destruirlista   lista2
+
+// fim

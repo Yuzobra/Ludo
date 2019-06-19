@@ -1,0 +1,22 @@
+[Diretorios]
+
+Nome        =  TesteLisCirc
+PathDefault =  ..\Fontes
+err         =  ..\Err
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+TSTLisCirc
+ListaCirc
+
+[BuildInicio]
+/OUT:..\Exe\TesteLisCirc.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

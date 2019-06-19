@@ -1,0 +1,14 @@
+Data		; Horas Trabalhadas	; Tipo da Tarefa					; Descrição da Tarefa
+
+21/04/2019	;  2h			; Estudar						; Estudar enunciado do trabalho	
+21/04/2019	;  2h			; Estudar						; Aprendendo a instalar/utilizar o arcabouço		
+21/04/2019	;  3h			; Especificar os módulos				; Decidido quais módulos seriam feitos e divisão do trabalho		
+23/04/2019	;  2h			; revisar especificações				; confirmadas as especificações para o módulo peca
+25/04/2019	;  1h			; codificar módulo					; codificação do módulo peca			
+27/04/2019	;  5h			; codificar módulo					; término da codificação do módulo peca		
+28/04/2019	;  2h			; revisar código do módulo				; procura de erros e correção dos mesmos no módulo peca
+10/05/2019	;  4h			; redigir script de teste				; redigir .script para teste dos módulos casa, peca, LISTA e LisCirc
+10/05/2019	;  2h			; revisar script de teste				; correção de alguns casos nos .scripts de teste dos módulos lista e casa			
+11/05/2019	;  1h			; redigir script de teste				; redigir .script de teste para tabuleiro	
+11/05/2019	;  40min		; revisar script de teste				; correção de casos no .script de teste do módulo tabuleiro
+12/05/2019	;  1h			; diagnosticar e corrigir os problemas encontrados	; correção dos erros encontrados no teste do módulo peca

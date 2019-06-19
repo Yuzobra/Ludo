@@ -1,0 +1,107 @@
+// Script:    TesteCasa.script
+// Autor:     Victor Hugo Silva Lima
+// Data:      11/05/2019
+// Propósito: Testar superficialmente o módulo Casa
+//
+
+==Inicializar valores 
+=declararparm casa0 int 0
+=declararparm casa1 int 1
+=declararparm casa2 int 2
+=declararparm casa3 int 3
+=declararparm casa4 int 4
+=declararparm casa5 int 5
+=declararparm casa6 int 6
+=declararparm casa7 int 7
+=declararparm casa8 int 8
+=declararparm casa9 int 9
+=declararparm casa10 int 10
+=declararparm casa11 int 11
+=declararparm casa12 int 12
+=declararparm casa13 int 13
+=declararparm casa14 int 14
+=declararparm casa15 int 15
+
+
+=declararparm comum 	int 0
+=declararparm inicial 	int 1
+=declararparm segura 	int 2
+=declararparm final 	int 3
+=declararparm entrada 	int 4
+
+=declararparm red	int 0
+=declararparm blue 	int 1
+=declararparm green 	int 2
+=declararparm yellow 	int 3
+=declararparm white 	int 4
+
+=declararparm   OK             int  0
+=declararparm   FaltouMemoria  int  1
+=declararparm   ParmIncorretos int  2
+
+==Criar a Casa 0
+=criacomum casa0
+
+
+==Criar a Casa Inicial
+=criainicial casa1
+
+==Criar a Casa Segura
+=criasegura casa2 red
+=criasegura casa3 blue
+=criasegura casa4 green
+=criasegura casa5 yellow
+
+==Criar a Casa Final
+=criafinal casa6 red
+=criafinal casa7 blue
+=criafinal casa8 green
+=criafinal casa9 yellow
+
+==Criar a Casa Inicial
+=criainicial casa10
+
+==Criar a Casa Entrada
+=criaentrada casa11 red
+=criaentrada casa12 blue
+=criaentrada casa13 green
+=criaentrada casa14 yellow
+=criaentrada casa15 yellow
+
+==Destruir Casa
+=destroicasa casa15
+
+==Criar Tipo
+=retornatipocasa casa0	comum	
+=retornatipocasa casa1	inicial
+=retornatipocasa casa2	segura	
+=retornatipocasa casa3	segura
+=retornatipocasa casa4	segura
+=retornatipocasa casa5	segura
+=retornatipocasa casa6	final
+=retornatipocasa casa7	final
+=retornatipocasa casa8	final
+=retornatipocasa casa9	final
+=retornatipocasa casa10	inicial
+=retornatipocasa casa11	entrada
+=retornatipocasa casa12	entrada
+=retornatipocasa casa13	entrada
+=retornatipocasa casa14	entrada
+		
+
+==Retorna Cor
+=retornacorcasa casa0	white
+=retornacorcasa casa1	white
+=retornacorcasa casa2	red
+=retornacorcasa casa3	blue
+=retornacorcasa casa4	green
+=retornacorcasa casa5	yellow
+=retornacorcasa casa6	red
+=retornacorcasa casa7	blue
+=retornacorcasa casa8	green
+=retornacorcasa casa9	yellow
+=retornacorcasa casa10	white
+=retornacorcasa casa11	red
+=retornacorcasa casa12	blue
+=retornacorcasa casa13	green
+=retornacorcasa casa14	yellow

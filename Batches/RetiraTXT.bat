@@ -1,0 +1,1 @@
+ren TesteTabuleiro.exe.txt TesteTabuleiro.exe
