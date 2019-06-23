@@ -92,7 +92,6 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 	COR_tpCor	cor,
 				cores[4];
 
-	char   StringDado[DIM_VALOR];
 	char * pDado;
 
 	int ValEsp = -1;
@@ -101,7 +100,6 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 
 	int numElem = -1;
 
-	StringDado[0] = 0;
 
 	/* Efetuar reset de teste de tabuleiro */
 

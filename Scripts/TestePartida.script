@@ -1,0 +1,51 @@
+// Script:    TesteCasa.script
+// Autor:     Victor Hugo Silva Lima
+// Data:      11/05/2019
+// Propósito: Testar o módulo Partida
+//
+
+
+
+==Inicializar valores 
+=declararparm casasAndadas0 int 0
+=declararparm casasAndadas1 int 1
+=declararparm casasAndadas2 int 2
+
+=declararparm red	int 0
+=declararparm blue 	int 1
+=declararparm green 	int 2
+=declararparm yellow 	int 3
+=declararparm white 	int 4
+
+=declararparm naopodemover 		int 0
+=declararparm tirarcasainicial 		int 1
+=declararparm movernormal 		int 2
+=declararparm tirarinicialemovernormal 	int 3
+
+=resetteste
+
+==Inicializar Vetor de casasAndadas
+=inicializarvetorcasasandadas casasAndadas0
+=inicializarvetorcasasandadas casasAndadas1
+=inicializarvetorcasasandadas casasAndadas2
+
+==Preencher Vetor de casasAndadas
+=preenchervetorcasasandadas casasAndadas0  15 0 0 0  2 0 0 0  0 0 0 0  0 0 0 0
+=preenchervetorcasasandadas casasAndadas1  0 0 0 0  57 57 57 57  0 0 0 1  0 0 0 0
+=preenchervetorcasasandadas casasAndadas2  13 0 0 0  0 0 0 0  1 1 0 0  0 0 0 0
+
+
+
+==Checar vitoria
+=checavitoria casasAndadas0 white
+=checavitoria casasAndadas1 blue
+
+==Verificar possiveis movimentos de uma cor
+=podemover casasAndadas1 red 1 tirarcasainicial
+=podemover casasAndadas1 green 1 tirarinicialemovernormal
+
+==Verificar comer peça
+=comerpeca casasAndadas0 red 1 blue
+
+==Verificar possui torre na casa seguinte
+=possuitorrenacasaseguinte casasAndadas2 red 1 green

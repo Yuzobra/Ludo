@@ -11,8 +11,4 @@ del ..\Objetos\*.build
 del ..\Composicao\*.list
 del ..\Scripts\*.estat
 del *.pdb
-del ..\Exe\TesteCasa.exe
-del ..\Exe\TestePeca.exe
-del ..\Exe\TesteLista.exe
-del ..\Exe\TesteLisCirc.exe
-del ..\Exe\TesteTabuleiro.exe
+del ..\Exe\*.exe

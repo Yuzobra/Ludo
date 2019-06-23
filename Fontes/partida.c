@@ -1,6 +1,7 @@
 #include "partida.h"
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 
 
 static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor);
@@ -48,6 +49,9 @@ PAR_CondRet PAR_iniciarPartida() {
 		return PAR_condRetFaltouMemoria;
 
 	}
+
+	srand(time(NULL));
+
 
 	strcpy(pModeConBat, pDirName);
 	strcpy(pClearBat, pDirName);
@@ -227,7 +231,6 @@ PAR_CondRet PAR_iniciarPartida() {
 	free(pClearBat);
 	return PAR_condRetOk;
 }
-
 
 static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0 se rodar o dado, 1 se sair da partida, -1 se houver um erro de entrada*/{
 	char acao, podeMoverPeca;
@@ -468,8 +471,6 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 
 }
 
-
-
 static PAR_tpMov podeMover(int* casasAndadas, COR_tpCor cor, int valorDado) {
 	int i , podeMoverPeca = 0, possuiPecaCasaInicial = 0;
 
@@ -496,8 +497,6 @@ static PAR_tpMov podeMover(int* casasAndadas, COR_tpCor cor, int valorDado) {
 	
 	return PAR_naoPodeMover;
 }
-
-
 
 static COR_tpCor ComerPeca(Tabuleiro* pTab,int* casasAndadas, COR_tpCor cor, int numPeca) /* Tem que verificar se é uma casa segura */{
 	int i;
@@ -528,7 +527,6 @@ static COR_tpCor ComerPeca(Tabuleiro* pTab,int* casasAndadas, COR_tpCor cor, int
 	return COR_white;
 }
 
-
 static COR_tpCor possuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int numPeca) {
 	int i, j, torre = 0;
 
@@ -557,9 +555,6 @@ static COR_tpCor possuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int
 	return COR_white;
 }
 
-
-
-
 static COR_tpCor checaVitoria(int* casasAndadas) {
 	int i, j;
 	for (i = 0; i < 4; i++) {
@@ -576,3 +571,31 @@ static COR_tpCor checaVitoria(int* casasAndadas) {
 	}
 	return COR_white;
 }
+
+
+
+#ifdef _DEBUG
+
+
+int _DEBUGrodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor); // ?
+
+
+COR_tpCor _DEBUGchecaVitoria(int* casasAndadas) { // retorna a cor do jogador vencedor, se não houver retorna COR_white
+	return checaVitoria(casasAndadas);
+}
+
+int _DEBUGpodeMover(int* casasAndadas, COR_tpCor cor, int valorDado) {
+	return podeMover(casasAndadas, cor, valorDado);
+}
+
+COR_tpCor _DEBUGComerPeca(int* casasAndadas, COR_tpCor cor, int numPeca) {  // retorna a cor da peca comida, se não houver retorna COR_white
+	Tabuleiro* pTab = NULL;
+	
+	return ComerPeca(pTab, casasAndadas, cor, numPeca);
+}
+
+COR_tpCor _DEBUGpossuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int numPeca) { // retorna a cor da torre, se não houver retorna COR_white
+	return possuiTorreNaCasaSeguinte(casasAndadas,cor,numPeca);
+}
+
+#endif

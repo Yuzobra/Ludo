@@ -9,6 +9,7 @@ nmake /F..\Composicao\TestePeca.make "PRD="
 nmake /F..\Composicao\TesteLista.make "PRD="
 nmake /F..\Composicao\TesteLisCirc.make "PRD="
 nmake /F..\Composicao\TesteTabuleiro.make "PRD="
+nmake /F..\Composicao\TestePartida.make "PRD="
 
 copy  ..\Err\*.err  ..\Err\tudo.err
 
