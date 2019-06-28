@@ -156,7 +156,7 @@
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: TST Cond ret módulo de teste genérico
+*  $TC Tipo de dados: TSTG Cond ret módulo de teste genérico
 *
 *
 ***********************************************************************/

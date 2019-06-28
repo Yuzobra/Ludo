@@ -1,8 +1,31 @@
+/***************************************************************************
+*  $MCI Módulo de implementação: PAR  partida
+*
+*  Arquivo gerado:              partida.c
+*  Letras identificadoras:      PAR
+*
+*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW
+*
+*  Projeto: INF 1301 / 1628 Automatização dos testes de módulos C
+*  Gestor:  LES/DI/PUC-Rio
+*  Autores: avs
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor    Data     Observações
+*     4       avs   01/fev/2006 criar linguagem script simbólica
+*     3       avs   08/dez/2004 uniformização dos exemplos
+*     2       avs   07/jul/2003 unificação de todos os módulos em um só projeto
+*     1       avs   16/abr/2003 início desenvolvimento
+*
+***************************************************************************/
+
 #include "partida.h"
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 
+/***** Protótipos das funções encapuladas no módulo *****/
 
 static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor);
 static COR_tpCor checaVitoria(int* casasAndadas); // retorna a cor do jogador vencedor, se não houver retorna COR_white
@@ -10,6 +33,14 @@ static int podeMover(int* casasAndadas, COR_tpCor cor,int valorDado);
 static COR_tpCor ComerPeca(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor, int numPeca);  // retorna a cor da peca comida, se não houver retorna COR_white
 static COR_tpCor possuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int numPeca); // retorna a cor da torre, se não houver retorna COR_white
 
+/*****  Código das funções exportadas pelo módulo  *****/
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: PAR Elemento da partida
+*
+*
+***********************************************************************/
 
 typedef enum {
 	
@@ -23,7 +54,22 @@ typedef enum {
 
 }PAR_tpMov;
 
+/***********************************************************************
+*
+*  $TC Tipo de dados: PAR Elemento da Partida
+
+*		$ED Descrição do tipo
+*		  - string que contém o diretorio em que o arquivo .bat está
+*
+***********************************************************************/
+
 char * pClearBat;
+
+/***************************************************************************
+*
+*  Função: PAR  &Iniciar Partida
+*
+*  ************************************************************************/
 
 PAR_CondRet PAR_iniciarPartida() {
 	char buffer[500];
@@ -41,14 +87,14 @@ PAR_CondRet PAR_iniciarPartida() {
 
 	if ((pDirName = _getcwd(buffer, 500)) != NULL) {
 		printf("%s\n", pDirName);
-	}
+	}/* if */
 	pModeConBat = (char*)malloc(strlen(pDirName) + 14); /* 14 vem de \\modeCon.bat + '\0'*/
 	pClearBat = (char*)malloc(strlen(pDirName) + 12); /* 12 vem de \\clear.bat + '\0'*/
 
 	if (pModeConBat == NULL || pClearBat == NULL || pDirName == NULL) {
 		return PAR_condRetFaltouMemoria;
 
-	}
+	}/* if */
 
 	srand(time(NULL));
 
@@ -63,14 +109,14 @@ PAR_CondRet PAR_iniciarPartida() {
 
 	printf("Quantas pessoas irao jogar?\n");
 	scanf("%d", &quantJog);
-
-	while (((buffer[0] = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+	
+	while (((buffer[0] = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/ 
 
 	while(quantJog < 2 || quantJog > 4) {
 		printf("Quantidade invalida de jogadores, devem haver no minimo 2 e no maximo 4:");
 		scanf("%d", &quantJog);
-		while (((buffer[0] = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
-	}
+		while (((buffer[0] = getchar()) != '\n')); 
+	}/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 	
 	pVetCores = (int*)malloc(sizeof(int) * quantJog);
 
@@ -88,66 +134,66 @@ PAR_CondRet PAR_iniciarPartida() {
 			scanf("%d", &corJog);
 			if (corJog > 0 && corJog < 5) {
 				teste = 0;
-			}
+			}/* if */
 			while (teste) {
 				printf("Cor invalida, insira um valor entre 1 e 4:");
 				scanf("%d", &corJog);
 				if (corJog > 0 && corJog < 5) {
 					teste = 0;
-				}
+				}/* if */
 			}
 			pVetCores[0] = corJog;
 			break;
 		case 1:
 
-			while (((buffer[0] = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+			while (((buffer[0] = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 			printf("Insira a cor do segundo jogador:"); 
 			scanf("%d", &corJog);
 			if (corJog > 0 && corJog < 5 && pVetCores[0] != corJog) {
 				teste = 0;
-			}
+			}/* if */
 			while (teste) {
 				printf("Cor invalida, insira um valor entre 1 e 4 que ainda nao tenha sido escolhida:");
 				scanf("%d", &corJog);
 				if (corJog > 0 && corJog < 5 && pVetCores[0] != corJog) {
 					teste = 0;
-				}
+				}/* if */
 			}
 			pVetCores[1] = corJog;
 			break;
 		case 2:
 
-			while (((buffer[0] = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+			while (((buffer[0] = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 			printf("Insira a cor do terceiro jogador:"); 
 			scanf("%d", &corJog);
 			if (corJog > 0 && corJog < 5 && pVetCores[0] != corJog && pVetCores[1] != corJog) {
 				teste = 0;
-			}
+			}/* if */
 			while (teste) {
 				printf("Cor invalida, insira um valor entre 1 e 4 que ainda nao tenha sido escolhida:");
 				scanf("%d", &corJog);
 				if (corJog > 0 && corJog < 5 && pVetCores[0] != corJog && pVetCores[1] != corJog) {
 					teste = 0;
-				}
+				}/* if */
 			}
 			pVetCores[2] = corJog;
 			break;
 		case 3:
-			while (((buffer[0] = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+			while (((buffer[0] = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 			printf("Insira a cor do quarto jogador:"); 
 			scanf("%d", &corJog);
 			if (corJog > 0 && corJog < 5 && pVetCores[0] != corJog && pVetCores[1] != corJog && pVetCores[2] != corJog) {
 				teste = 0;
-			}
+			}/* if */
 			while (teste) {
 				printf("Cor invalida, insira um valor entre 1 e 4 que ainda nao tenha sido escolhida:");
 				scanf("%d", &corJog);
 				if (corJog > 0 && corJog < 5 && pVetCores[0] != corJog && pVetCores[1] != corJog && pVetCores[2] != corJog) {
 					teste = 0;
-				}
+				}/* if */
 			}
 			pVetCores[3] = corJog;
 			break;
@@ -172,7 +218,7 @@ PAR_CondRet PAR_iniciarPartida() {
 			system(pClearBat);
 			printf("Ocorreu um erro inesperado, reinicie o jogo");
 			system("pause");
-		}
+		}/* if */
 
 
 		else if (acao == 1) {
@@ -181,7 +227,7 @@ PAR_CondRet PAR_iniciarPartida() {
 			for (i = 0; i < quantJog; i++) {
 				if (i != (rodadaAtual-1) % quantJog) {
 					jogRestantes[cont++]=pVetCores[i];
-				}
+				}/* if */
 			}
 			free(pVetCores);
 			pVetCores = jogRestantes;
@@ -203,7 +249,7 @@ PAR_CondRet PAR_iniciarPartida() {
 				}
 				system("pause");
 				return PAR_condRetOk;
-			}
+			}/* if */
 		}
 	} while (checaVitoria(casasAndadas) == COR_white);
 
@@ -230,21 +276,42 @@ PAR_CondRet PAR_iniciarPartida() {
 	free(pModeConBat);
 	free(pClearBat);
 	return PAR_condRetOk;
-}
+}/* Fim função: PAR  &PAR_iniciarPartida */
 
-static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0 se rodar o dado, 1 se sair da partida, -1 se houver um erro de entrada*/{
-	char acao, podeMoverPeca;
+/***********************************************************************
+*
+*  $FC Função: PAR  -Rodada
+*
+*  $ED Descrição da função
+*		- gerencia os inputs do usuário
+		- roda o dado
+		- realiza as ações desejadas
+*
+*  $FV Valor retornado
+*     0 - se o jogador rodar o dado
+*	  1 - se o jogaador saiu da partida
+*	 -1 - se houver um erro de entrada
+*
+***********************************************************************/
 
-	int valorDado, i,numPeca;
+static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor){
+	char acao,
+		podeMoverPeca;
+
+	int valorDado,
+		i,
+		numPeca;
 
 
 
 	if (pTab == NULL || casasAndadas == NULL || cor < COR_MIN || cor > COR_MAX) {
 		return -1;
-	}
+	}/* if */
 
 	printf("\n");
-	for (i = 0; i < 16; i++)printf("%d ", casasAndadas[i]);
+	for (i = 0; i < 16; i++) {
+		printf("%d ", casasAndadas[i]);
+	}/* for */
 
 
 
@@ -265,14 +332,14 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 	}
 	printf("o que deseja fazer?\nR - Rodar o dado\nS - Sair da partida\n");
 
-	while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+	while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 
 	scanf("\n%c", &acao);
 
 	while (acao != 'S' && acao != 's' && acao != 'R' && acao != 'r') {
 
-		while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+		while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 
 		printf("Comando invalido, insira um comando valido, sendo:\nR - Rodar o dado\nS - Sair da partida\n");
@@ -280,10 +347,10 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 	}
 	if (acao == 'r') {
 		acao = 'R';
-	}
-	else if(acao == 's') {
+	}else if(acao == 's') {
 		acao = 'S';
-	}
+	}/* if */
+
 	switch (acao) {
 	case 'R':
 		system(pClearBat);
@@ -296,32 +363,31 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 
 		if (podeMoverPeca != PAR_naoPodeMover) {
 			printf(" voce pode:\n");
-		}
-		else  {
+		}else  {
 			printf(" voce nao pode fazer nada!\n");
 			system("pause");
 			system(pClearBat);
 			return;
-		}
+		}/* if */
 
 		if (podeMoverPeca == PAR_moverNormal || podeMoverPeca == PAR_tirarInicialEMoverNormal) {
 			printf("M - Mover alguma peca\n");
-		}
+		}/* if */
 
 		if (podeMoverPeca == PAR_tirarCasaInicial || podeMoverPeca == PAR_tirarInicialEMoverNormal) {
 			printf("T - Tirar uma peca da casa inicial\n");
-		}
+		}/* if */
 
 		if (podeMoverPeca != PAR_naoPodeMover) {
 			
-			while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+			while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 			scanf("\n%c", &acao);
-		}
+		}/* if */
 		if (podeMoverPeca == PAR_tirarInicialEMoverNormal) {
 			while (acao != 'M' && acao != 'm' && acao != 'T' && acao != 't') {
 
-				while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+				while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 
 				system(pClearBat);
@@ -329,40 +395,37 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 				printf("Comando invalido, insira um comando valido, sendo:\nM - Mover alguma peca\nT - Tirar uma peca da casa inicial\n");
 				scanf("\n%c", &acao);
 			}
-
-		}
-		else if (podeMoverPeca == PAR_moverNormal) {
+		}else if (podeMoverPeca == PAR_moverNormal) {
 			while (acao != 'M' && acao != 'm') {
 
-				while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+				while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 				system(pClearBat);
 				TAB_visualizaTabuleiro(pTab);
 				printf("Comando invalido, insira um comando valido, sendo:\nM - Mover alguma peca\n");
 				scanf("\n%c", &acao);
 			}
-		}
-		else if (podeMoverPeca == PAR_tirarCasaInicial) {
+		}else if (podeMoverPeca == PAR_tirarCasaInicial) {
 			while (acao != 'T' && acao != 't') {
 
-				while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+				while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 				system(pClearBat);
 				TAB_visualizaTabuleiro(pTab);
 				printf("Comando invalido, insira um comando valido, sendo:\nT - Tirar uma peca da casa inicial\n");
 				scanf("\n%c", &acao);
 			}
-		}
+		}/* if */
 
 		if (acao == 'm') {
 			acao = 'M';
-		}
+		}/* if */
 		if (acao == 't') {
 			acao = 'T';
-		}
+		}/* if */
 		switch (acao) {
 		case 'M':
-			while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+			while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 			printf("Qual peca deseja mover? ");
 
 			scanf("%d", &numPeca);
@@ -371,18 +434,17 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 			while ((numPeca < PEC_MIN || numPeca > PEC_MAX) || casasAndadas[(cor * 4) + numPeca - 1] == 0) {
 				if (numPeca < PEC_MIN || numPeca > PEC_MAX) {
 					
-					while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+					while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 					printf("\nValor invalido de peca, insira um valor entre 1 e 4: ");
 					scanf("%d", &numPeca);
-				}
-				else {
+				}else {
 
-					while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+					while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 					printf("\nEssa peca esta em um casa inicial, escolha uma que nao esteja: ");
 					scanf("%d", &numPeca);
-				}
+				}/* if */
 			}
 
 			if (casasAndadas[(cor * 4) + numPeca - 1] <= CASAS_ATE_ENTRADA) {
@@ -392,22 +454,19 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 
 					if (corTorre != cor && corTorre != COR_white) {
 						break;
-					}
-					else {
+					}else {
 						casasAndadas[(cor * 4) + numPeca - 1]++;
 						TAB_moverPeca(pTab, 1, cor, numPeca);
-					}
-				}
-			}
-			else {
+					}/* if */
+				}/* for */
+			}else {
 				TAB_moverPeca(pTab, valorDado, cor, numPeca);
 				if (casasAndadas[(cor * 4) + numPeca - 1] + valorDado > 57) {
 					casasAndadas[(cor * 4) + numPeca - 1] = 57 - ((casasAndadas[(cor * 4) + numPeca - 1] + valorDado) % 57); 
-				}
-				else {
+				}else {
 					casasAndadas[(cor * 4) + numPeca - 1] += valorDado;
-				}
-			}
+				}/* if */
+			}/* if */
 
 
 
@@ -430,19 +489,18 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 			while ((numPeca < PEC_MIN || numPeca > PEC_MAX) || casasAndadas[(cor * 4) + numPeca - 1] != 0) {
 				if (numPeca < PEC_MIN || numPeca > PEC_MAX){
 
-					while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+					while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 					printf("\nValor invalido de peca, insira um valor entre 1 e 4: ");
 					scanf("%d", &numPeca);
-				}
-				else {
+				}else {
 
-					while (((acao = getchar()) != '\n')); // LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF
+					while (((acao = getchar()) != '\n'));/*LIMPAR O BUFFER DE ENTRADA PARA IMPEDIR CONFLITO COM O PROXIMO SCANF*/
 
 
 					printf("\nEssa peca nao esta em um casa inicial, escolha uma que esteja: ");
 					scanf("%d", &numPeca);
-				}
+				}/* if */
 			}
 
 			
@@ -456,7 +514,7 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 		if (valorDado == 1 || valorDado == 6) {
 			printf("Voce tirou %d no dado! Tem direito a mais uma rodada.\n", valorDado);
 			 return rodada(pTab, casasAndadas, cor);
-		}
+		}/* if */
 		return 0;
 		break;
 	case 'S':
@@ -469,34 +527,59 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor) /*Retorna 0
 		return 1;
 	}
 
-}
+}/* Fim função: PAR  -rodada */
+
+/***************************************************************************
+*
+*  Função: PAR  &Mover Peca
+*
+*  ************************************************************************/
 
 static PAR_tpMov podeMover(int* casasAndadas, COR_tpCor cor, int valorDado) {
-	int i , podeMoverPeca = 0, possuiPecaCasaInicial = 0;
+	int i ,
+		podeMoverPeca			= 0,
+		possuiPecaCasaInicial	= 0;
 
 	
 	for (i = 0; i < 4; i++) {
 		if (casasAndadas[cor * 4 + i] != 0) {
 			podeMoverPeca = 1;
-		}
-		else /* há uma peca na casa inicial */ {
+		}else /* há uma peca na casa inicial */ {
 			possuiPecaCasaInicial = 1;
-		}
-	}
+		}/* if */
+	}/* for */
 
 	if (podeMoverPeca && (possuiPecaCasaInicial && (valorDado == 1 || valorDado == 6))) {
 		return PAR_tirarInicialEMoverNormal;
-	}
-	else if(podeMoverPeca){
+	}else if(podeMoverPeca){
 		return PAR_moverNormal;
-	}
-
-	else if (possuiPecaCasaInicial && (valorDado == 1 || valorDado == 6)) {
+	}else if (possuiPecaCasaInicial && (valorDado == 1 || valorDado == 6)) {
 		return PAR_tirarCasaInicial;
-	}
+	}/* if */
 	
 	return PAR_naoPodeMover;
-}
+}/* Fim função: PAR  &Mover Peca */
+
+/***********************************************************************
+*
+*  $FC Função: PAR  -Comer Peca
+*
+*  $ED Descrição da função
+*	  verifica se a peça passada para a função possui uma peçaa para comer.
+*	  verifica se há alguma peça a ser comida na casa da peça passada,
+*			se tiver, retorna a peça para a casa inicial e atualiza o vetor de casas andadas.
+*
+*  $EP Parâmetros
+*     pTab - ponteiro para tabuleiro
+*	  casasAndadas - vetor de casas andadas
+*	  cor - da peça que deseja saber a informação
+*	  numPeca - da peça que deseja saber a informação
+*
+*  $FV Valor retornado
+*		COR_white -  se nao houver retorna branco
+*		i / 4 - cor da peça comida
+*
+***********************************************************************/
 
 static COR_tpCor ComerPeca(Tabuleiro* pTab,int* casasAndadas, COR_tpCor cor, int numPeca) /* Tem que verificar se é uma casa segura */{
 	int i;
@@ -509,26 +592,44 @@ static COR_tpCor ComerPeca(Tabuleiro* pTab,int* casasAndadas, COR_tpCor cor, int
 				casasAndadas[i] = 0;
 				return i / 4;
 
-			}
-		}
-		else if(i/4 > cor){
+			}/* if */
+		}else if(i/4 > cor){
 			if ((casasAndadas[i] + (13 * ((i / 4) - cor))) == casasAndadas[(cor * 4) + numPeca] && casasAndadas[i] != 1) {
 
 
-				// RETORNAR PARA CASA INICIAL
+				/*RETORNAR PARA CASA INICIAL*/
 				TAB_retornaPecaParaCasaInicial(pTab, i / 4, (i % 4) + 1);
 				casasAndadas[i] = 0;
 				return i / 4;
 
-			}
-		}
-
-	}
+			}/* if */
+		}/* if */
+	}/* for */
 	return COR_white;
-}
+}/* Fim função: PAR  -comer peca */
+
+/***********************************************************************
+*
+*  $FC Função: PAR  -Checar se Possui Torre na Casa Seguinte
+*
+*  $ED Descrição da função
+*     Checa se possui torre na casa da frente
+*
+*  $EP Parâmetros
+*	  casasAndadas - vetor de casas andadas
+*	  cor - da peça que deseja saber a informação
+*	  numPeca - da peça que deseja saber a informação
+*
+*  $FV Valor retornado
+*	   i / 4 -  se tiver uma torre na casa seguinte a peça
+*	   COR_white - se nao tiver retorna branco
+*
+***********************************************************************/
 
 static COR_tpCor possuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int numPeca) {
-	int i, j, torre = 0;
+	int i,
+		j,
+		torre = 0;
 
 	for (i = 0; i < 16; i++) {
 		if (i / 4 < cor)  /* Torre de uma cor anterior a cor procurada */ {
@@ -536,51 +637,81 @@ static COR_tpCor possuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int
 				for (j = 1; j < ((i / 4) * 4) + 4; j++) {
 					if (casasAndadas[i] == casasAndadas[i + j]) {
 						return i / 4;
-					}
-				}
-			}
-		}
-		else {
+					}/* if */
+				}/* for */
+			}/* if */
+		}else {
 			if (casasAndadas[i] - (13 * (cor - (i / 4)) == (casasAndadas[(cor * 4) + numPeca])+1) ) {
 				for (j = 1; j < ((i / 4) * 4) + 4; j++) {
 					if (casasAndadas[i] == casasAndadas[i + j]) {
 						return i / 4;
-					}
-				}
-			}
-
-		}
-	}
+					}/* if */
+				}/* for */
+			}/* if */
+		}/* if */
+	}/* for */
 
 	return COR_white;
-}
+}/* Fim função: PAR  -Checar se Possui Torre na Casa Seguinte */
+
+/***********************************************************************
+*
+*  $FC Função: PAR  -Checar se há algum jogador vitorioso
+*
+*  $ED Descrição da função
+*     Checa se há alguma cor em que as quatro peças
+*		andaram o numero total de casas do tabuleiro
+*		retornando a cor do jogador vencedor
+*
+*  $EP Parâmetros
+*	  casasAndadas - vetor de casas andadas
+*
+*  $FV Valor retornado
+*	  i - a cor do jogador vencedor
+*	  COR_white - se nao tiver, retorna branco
+*
+***********************************************************************/
 
 static COR_tpCor checaVitoria(int* casasAndadas) {
-	int i, j;
+	int i,
+		j;
 	for (i = 0; i < 4; i++) {
 		for (j = 0; j < 4; j++) {
 			if (casasAndadas[(4 * i) + j] > CASAS_ATE_ENTRADA && (casasAndadas[(4 * i) + j] - 51) % 6 == 0) {
 				if (j == 3) {
 					return i;
-				}
-			}
-			else {
+				}/* if */
+			}else {
 				break;
-			}
-		}
-	}
+			}/* if */
+		}/* for */
+	}/* for */
 	return COR_white;
-}
+}/* Fim função: PAR  -Checar se há algum jogador vitorioso */
 
 
+/*****  conjunto de funções que servem somente para exportar funções estáticas do módulo para chamar no módulo teste  *****/
 
 #ifdef _DEBUG
 
+/***************************************************************************
+*
+*  Função: PAR  -DEBUGrodada
+*
+*  ************************************************************************/
 
-int _DEBUGrodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor); // ?
+int _DEBUGrodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor);
 
+/***************************************************************************
+*
+*  Função: PAR  _DEBUGchecaVitoria
+*
+*  $ED Descrição da função
+*		retorna a cor do jogador vencedor, se não houver retorna COR_white
+*
+*  ************************************************************************/
 
-COR_tpCor _DEBUGchecaVitoria(int* casasAndadas) { // retorna a cor do jogador vencedor, se não houver retorna COR_white
+COR_tpCor _DEBUGchecaVitoria(int* casasAndadas) {
 	return checaVitoria(casasAndadas);
 }
 
@@ -588,14 +719,34 @@ int _DEBUGpodeMover(int* casasAndadas, COR_tpCor cor, int valorDado) {
 	return podeMover(casasAndadas, cor, valorDado);
 }
 
-COR_tpCor _DEBUGComerPeca(int* casasAndadas, COR_tpCor cor, int numPeca) {  // retorna a cor da peca comida, se não houver retorna COR_white
+/***************************************************************************
+*
+*  Função: PAR  _DEBUGchecaVitoria
+*
+*  $ED Descrição da função
+*		retorna a cor da peca comida, se não houver retorna COR_white
+*
+*  ************************************************************************/
+
+COR_tpCor _DEBUGComerPeca(int* casasAndadas, COR_tpCor cor, int numPeca) { 
 	Tabuleiro* pTab = NULL;
 	
 	return ComerPeca(pTab, casasAndadas, cor, numPeca);
 }
 
-COR_tpCor _DEBUGpossuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int numPeca) { // retorna a cor da torre, se não houver retorna COR_white
+/***************************************************************************
+*
+*  Função: PAR  _DEBUGchecaVitoria
+*
+*  $ED Descrição da função
+*		retorna a cor da torre, se não houver retorna COR_white
+*
+*  ************************************************************************/
+
+COR_tpCor _DEBUGpossuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int numPeca) { 
 	return possuiTorreNaCasaSeguinte(casasAndadas,cor,numPeca);
 }
 
 #endif
+
+/********** Fim do módulo de implementação : PAR partida ********** /

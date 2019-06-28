@@ -31,7 +31,14 @@
 
 #include    "partida.h"
 
-//DEVEM SER SUBSTITUIDOS POR INICIAR PARTIDA E TERMINAR PARTIDA?
+/***********************************************************************
+*
+*  $DC Dados Globais: TSTPAR Comandos definidos
+*
+*		$ED Descrição do tipo
+*			- comandos definidos para usar no scipt de teste
+*
+***********************************************************************/
 
 static const char RESET_VETORES_CMD[] = "=resetteste";
 static const char INICIALIZAR_VETOR_CMD[] = "=inicializarvetorcasasandadas";
@@ -40,10 +47,6 @@ static const char CHECA_VITORIA_CMD[] = "=checavitoria";
 static const char PODE_MOVER_CMD[] = "=podemover";
 static const char COMER_PECA_CMD[] = "=comerpeca";
 static const char POSSUI_TORRE_NA_CASA_SEGUINTE_CMD[] = "=possuitorrenacasaseguinte";
-//static const char DESTROI_TABULEIRO_CMD[] = "=destroitabuleiro";
-
-
-
 
 #define TRUE  1
 #define FALSE 0
@@ -53,6 +56,15 @@ static const char POSSUI_TORRE_NA_CASA_SEGUINTE_CMD[] = "=possuitorrenacasasegui
 
 #define QUANT_VT_CASAS_ANDADAS   25
 #define DIM_VT_CASAS_ANDADAS     16
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: TSTPAR
+*
+*		$ED Descrição do tipo
+*			- vetor de casas andadas para serem testados
+*
+***********************************************************************/
 
 int * vtCasasAndadas[QUANT_VT_CASAS_ANDADAS];
 
@@ -87,12 +99,13 @@ int ValidarIndexCasasAndadas(int indexCasasAndadas, int Modo);
 TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 {
 
-	int indexCasasAndadas = -1,
-		numLidos = -1,
-		CondRetEsp = -1,
-		numPeca = -1,
-		valorDado = -1,
+	int indexCasasAndadas	= -1,
+		numLidos			= -1,
+		CondRetEsp			= -1,
+		numPeca				= -1,
+		valorDado			= -1,
 		Aux[16];
+
 	TST_tpCondRet CondRet;
 
 	PAR_CondRet ParCondRet;
@@ -124,7 +137,6 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 
 	} /* fim ativa: Efetuar reset de teste de partida */
 
-
 	/* Inicializar vetor*/
 
 	else if (strcmp(ComandoTeste, INICIALIZAR_VETOR_CMD) == 0)
@@ -137,7 +149,7 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 			|| (indexCasasAndadas >= QUANT_VT_CASAS_ANDADAS))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		vtCasasAndadas[indexCasasAndadas] = (int*)malloc(sizeof(int) * DIM_VT_CASAS_ANDADAS);
 
@@ -146,12 +158,7 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 
 	} /* fim ativa: Inicializar vetor */
 
-
-
-
-
-
-	/* Preencher vetor */
+	  /* Preencher vetor */
 
 	else if (strcmp(ComandoTeste, PREENCHER_VETOR_CMD) == 0)
 	{
@@ -183,14 +190,13 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 			|| (!ValidarIndexCasasAndadas(indexCasasAndadas, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		
 		return TST_CompararEspaco(Aux,vtCasasAndadas[indexCasasAndadas],sizeof(int)*DIM_VT_CASAS_ANDADAS,
 			"Erro em preencher vetor de casas andadas");
 
-	} /* fim ativa: Preencher vetor */
-	  
+	} /* fim ativa: Preencher vetor */	  
 	 
 	/* Testar ChecaVitoria*/
 
@@ -203,7 +209,7 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 			|| (!ValidarIndexCasasAndadas(indexCasasAndadas, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 
 
@@ -227,7 +233,7 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 		|| (!ValidarIndexCasasAndadas(indexCasasAndadas, NAO_VAZIO)))
 	{
 		return TST_CondRetParm;
-	} /* if */
+	}
 
 
 
@@ -239,8 +245,6 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 
 	} /* fim ativa: Testar PodeMover */
 	
-
-
 	/* Testar comer peça*/
 
 	else if (strcmp(ComandoTeste, COMER_PECA_CMD) == 0)
@@ -252,7 +256,7 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 		|| (!ValidarIndexCasasAndadas(indexCasasAndadas, NAO_VAZIO)))
 	{
 		return TST_CondRetParm;
-	} /* if */
+	} 
 
 
 	cor = _DEBUGComerPeca(vtCasasAndadas[indexCasasAndadas], cor, numPeca-1);
@@ -274,7 +278,7 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 		|| (!ValidarIndexCasasAndadas(indexCasasAndadas, NAO_VAZIO)))
 	{
 		return TST_CondRetParm;
-	} /* if */
+	}
 
 
 	cor = _DEBUGpossuiTorreNaCasaSeguinte(vtCasasAndadas[indexCasasAndadas], cor, numPeca - 1);
@@ -283,24 +287,17 @@ TST_tpCondRet TST_EfetuarComando(char* ComandoTeste)
 	return TST_CompararInt(CondRetEsp, cor,
 		"Erro em teste de possuiTorreNaCasaSeguinte.");
 
-	} /* fim ativa: Testar PossuiTorreNaCasaSeguinte*/
+	}  /* if */
+	/* fim ativa: Testar PossuiTorreNaCasaSeguinte*/
 
-
-
-
-
-
-
-
-
-} /* Fim função: TLIS &Testar Partida */
+} /* Fim função: TSTPAR &Testar Partida */
 
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
 *
-*  $FC Função: TLIS -Validar indice de lista
+*  $FC Função: TSTPAR -Validar indice de lista
 *
 ***********************************************************************/
 
@@ -317,20 +314,18 @@ int ValidarIndexCasasAndadas(int indexCasasAndadas, int Modo){
 		if (vtCasasAndadas[indexCasasAndadas][0] != -1)
 		{
 			return FALSE;
-		} /* if */
-	}
-	else
+		}
+	}else
 	{
 		if (vtCasasAndadas[indexCasasAndadas][0] == -1)
 		{
 			return FALSE;
-		} /* if */
+		}
 	} /* if */
 
 	return TRUE;
 
-} /* Fim função: TTAB -Validar indice de tabuleiros */
+} /* Fim função: TSTPAR -Validar indice de tabuleiros */
 
 
-/********** Fim do módulo de implementação: TSTTAB Teste Tabuleiro **********/
-
+/********** Fim do módulo de implementação: TSTPAR Teste Partida **********/

@@ -28,6 +28,16 @@
 #include    "TST_Espc.h"
 #include    "peca.h"
 
+
+/***********************************************************************
+*
+*  $DC Dados Globais: TSTPEC
+*
+*		$ED Descrição do tipo
+*			- comandos definidos para usar no scipt de teste
+*
+***********************************************************************/
+
 static const char RESET_PECA_CMD[] = "=resetteste";
 static const char CRIA_PECA_CMD[] = "=criapeca";
 static const char RETORNA_NUM_CMD[] = "=retornanumpeca";
@@ -41,6 +51,16 @@ static const char DESTROI_PECA_CMD[] = "=destroipeca";
 #define NAO_VAZIO 1
 
 #define DIM_VT_PECA 25
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: TSTPEC Vetor de Peças
+*
+*		$ED Descrição do tipo
+*			- vetor de peças para serem testados
+*
+***********************************************************************/
+
 
 Peca * vtPecas[DIM_VT_PECA];
 
@@ -69,11 +89,11 @@ static int validarInxPeca(int indexPeca, int Modo);
 ***********************************************************************/
 
 TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
-	int indexPeca = -1,
-		numLidos = -1,
-		i = -1,
-		condRetEsp = -1,
-		numPeca = -1;
+	int indexPeca	= -1,
+		numLidos	= -1,
+		i			= -1,
+		condRetEsp	= -1,
+		numPeca		= -1;
 
 	COR_tpCor cor;
 	PEC_CondRet pecCondRet;
@@ -88,13 +108,10 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 		} /* for */
 
 		return TST_CondRetOK;
-
-	} /* fim ativa: Efetuar reset de teste de peca */
-
-	  /* Testar CriaPeca*/
-
-	else if (strcmp(ComandoTeste, CRIA_PECA_CMD) == 0)
+		/* fim ativa: Efetuar reset de teste de peca */
+	}else if (strcmp(ComandoTeste, CRIA_PECA_CMD) == 0)
 	{
+		/* Testar CriaPeca*/
 		numLidos = LER_LerParametros("iii",
 			&indexPeca, &cor, &numPeca);
 
@@ -102,7 +119,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 			|| (!validarInxPeca(indexPeca, VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		pecCondRet = PEC_criaPeca(&vtPecas[indexPeca], cor, numPeca);
 		if (pecCondRet == PEC_condRetFaltouMemoria) {
@@ -110,13 +127,10 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 		}
 		return TST_CompararPonteiroNulo(1, vtPecas[indexPeca],
 			"Erro em ponteiro de nova Peca.");
-
-	} /* fim ativa: Testar CriaPeca' */
-
-	 /* Testar RetornaNum*/
-
-	else if (strcmp(ComandoTeste, RETORNA_NUM_CMD) == 0)
+		/* fim ativa: Testar CriaPeca' */
+	} else if (strcmp(ComandoTeste, RETORNA_NUM_CMD) == 0)
 	{
+		/* Testar RetornaNum*/
 		numLidos = LER_LerParametros("ii",
 			&indexPeca, &condRetEsp);
 
@@ -124,18 +138,15 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 			|| (!validarInxPeca(indexPeca, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		PEC_retornaNum(vtPecas[indexPeca], &numPeca);
 		return TST_CompararInt(condRetEsp, numPeca,
 			"Erro ao retornar numero da peca");
-
-	} /* fim ativa: Testar RetornaNum */
-
-	/* Testar RetornaCor*/
-
-	else if (strcmp(ComandoTeste, RETORNA_COR_CMD) == 0)
-	{
+		/* fim ativa: Testar RetornaNum */
+	} else if (strcmp(ComandoTeste, RETORNA_COR_CMD) == 0)
+	{	
+		/* Testar RetornaCor*/
 		numLidos = LER_LerParametros("ii",
 			&indexPeca, &condRetEsp);
 
@@ -148,15 +159,10 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 		PEC_retornaCor(vtPecas[indexPeca], &cor);
 		return TST_CompararInt(condRetEsp, cor,
 			"Erro ao retornar cor da peca");
-
-	} /* fim ativa: Testar RetornaCor */
-
-
-	/* Testar DestroiPeca*/
-
-	else if (strcmp(ComandoTeste, DESTROI_PECA_CMD) == 0)
+		/* fim ativa: Testar RetornaCor */
+	} else if (strcmp(ComandoTeste, DESTROI_PECA_CMD) == 0)
 	{
-
+		/* Testar DestroiPeca*/
 		numLidos = LER_LerParametros("i",
 			&indexPeca);
 
@@ -164,19 +170,19 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 			|| (!validarInxPeca(indexPeca, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		pecCondRet = PEC_destruirPeca(vtPecas[indexPeca]);
 
 		return TST_CompararInt(PEC_condRetOk, pecCondRet,
 			"Erro ao destruir casa.");
 
-	} /* fim ativa: Testar DestroiPeca */
+	}  /* if */ 
+	/* fim ativa: Testar DestroiPeca */
 
 	return TST_CondRetNaoConhec;
-}
+}/* Fim função: TSTPEC &TST_EfetuarComando */
 
-/*****  Código das funções encapsuladas no módulo  *****/
 
 
 /***********************************************************************

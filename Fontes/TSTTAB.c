@@ -31,15 +31,22 @@
 #include    "Tabuleiro.h"
 
 
+/***********************************************************************
+*
+*  $DC Dados Globais: TSTTAB
+*
+*		$ED Descrição do tipo
+*			- comandos definidos para usar no scipt de teste
+*
+***********************************************************************/
+
+
 static const char RESET_TABULEIRO_CMD			[] = "=resetteste";
 static const char CRIA_TABULEIRO_CMD			[] = "=criatabuleiro";
 static const char MONTA_TABULEIRO_CMD			[] = "=montatabuleiro";
 static const char RETORNA_PECA_CASA_INICIAL_CMD	[] = "=retornacasainicial";
 static const char MOVER_PECA_CMD				[] = "=moverpeca";
 static const char DESTROI_TABULEIRO_CMD			[] = "=destroitabuleiro";
-
-
-
 
 #define TRUE  1
 #define FALSE 0
@@ -49,6 +56,15 @@ static const char DESTROI_TABULEIRO_CMD			[] = "=destroitabuleiro";
 
 #define DIM_VT_TABULEIRO   25
 #define DIM_VALOR     100
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: TSTTAB Vetor de Tabuleiros
+*
+*		$ED Descrição do tipo
+*			- vetor de tabuleiros para serem testados
+*
+***********************************************************************/
 
 Tabuleiro * vtTabuleiros[DIM_VT_TABULEIRO];
 
@@ -81,12 +97,13 @@ static int ValidarIndexTabuleiro(int indexTabuleiro, int Modo);
 TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 {
 
-	int indexTabuleiro = -1,
-		numLidos = -1,
-		CondRetEsp = -1,
-		numJogadores = -1,
-		numPeca = -1,
-		numCasas = -1;
+	int indexTabuleiro	= -1,
+		numLidos		= -1,
+		CondRetEsp		= -1,
+		numJogadores	= -1,
+		numPeca			= -1,
+		numCasas		= -1;
+
 	TST_tpCondRet CondRet;
 
 	COR_tpCor	cor,
@@ -112,13 +129,10 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 		} /* for */
 
 		return TST_CondRetOK;
-
-	} /* fim ativa: Efetuar reset de teste de tabuleiro */
-
-	/* Testar CriarTabuleiro*/
-
-	else if (strcmp(ComandoTeste, CRIA_TABULEIRO_CMD) == 0)
+		/* fim ativa: Efetuar reset de teste de tabuleiro */
+	}else if (strcmp(ComandoTeste, CRIA_TABULEIRO_CMD) == 0)
 	{
+		/* Testar CriarTabuleiro*/
 		numLidos = LER_LerParametros("i",
 			&indexTabuleiro);
 
@@ -126,19 +140,16 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 			|| (!ValidarIndexTabuleiro(indexTabuleiro, VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		TAB_criaTabuleiro(&vtTabuleiros[indexTabuleiro]);
 
 		return TST_CompararPonteiroNulo(1, vtTabuleiros[indexTabuleiro],
 			"Erro em ponteiro de novo tabuleiro.");
-
-	} /* fim ativa: Testar CriarTabuleiro */
-
-	/* Testar MontaTabuleiro */
-
-	else if (strcmp(ComandoTeste, MONTA_TABULEIRO_CMD) == 0)
+		/* fim ativa: Testar CriarTabuleiro */
+	}else if (strcmp(ComandoTeste, MONTA_TABULEIRO_CMD) == 0)
 	{
+		/* Testar MontaTabuleiro */
 		numLidos = LER_LerParametros("iiiiiii",
 			&indexTabuleiro, &numJogadores,&cores[0], &cores[1], &cores[2], &cores[3], &CondRetEsp);
 
@@ -146,19 +157,15 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 			|| (!ValidarIndexTabuleiro(indexTabuleiro, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		CondRet = TAB_montaTabuleiro(vtTabuleiros[indexTabuleiro], numJogadores, cores);
 		
 		return TST_CompararInt(CondRetEsp, CondRet,
 				"Erro ao montar tabuleiro");
-
-	} /* fim ativa: Testar MontaTabuleiro */
-
-	/* Testar RetornaPecaParaCasaInicial */
-
-	else if (strcmp(ComandoTeste, RETORNA_PECA_CASA_INICIAL_CMD) == 0)
-	{
+		/* fim ativa: Testar MontaTabuleiro */
+	}else if (strcmp(ComandoTeste, RETORNA_PECA_CASA_INICIAL_CMD) == 0)
+	{	/* Testar RetornaPecaParaCasaInicial */
 		numLidos = LER_LerParametros("iiii",
 			&indexTabuleiro, &cor,  &numPeca,&CondRetEsp);
 
@@ -166,19 +173,15 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 			|| (!ValidarIndexTabuleiro(indexTabuleiro, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		CondRet = TAB_retornaPecaParaCasaInicial(vtTabuleiros[indexTabuleiro], cor, numPeca);
 
 		return TST_CompararInt(CondRetEsp, CondRet,
 			"Erro ao retornar peca para casa inicial.");
-
-	} /* fim ativa: Testar RetornaPecaParaCasaInicial */
-
-	/* Testar MoverPeca */
-
-	else if (strcmp(ComandoTeste, MOVER_PECA_CMD) == 0)
-	{
+		/* fim ativa: Testar RetornaPecaParaCasaInicial */
+	}else if (strcmp(ComandoTeste, MOVER_PECA_CMD) == 0)
+	{ /* Testar MoverPeca */
 		numLidos = LER_LerParametros("iiiii",
 				&indexTabuleiro,&numCasas, &cor, &numPeca,&CondRetEsp);
 
@@ -186,20 +189,16 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 			|| (!ValidarIndexTabuleiro(indexTabuleiro, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		}
 
 		CondRet = TAB_moverPeca(vtTabuleiros[indexTabuleiro],numCasas, cor, numPeca);
 
 		return TST_CompararInt(CondRetEsp, CondRet,
 			"Erro ao mover peca.");
-
-	} /* fim ativa: Testar MoverPeca */
-
-	 /* Testar Destruir tabuleiro */
-
-	else if (strcmp(ComandoTeste, DESTROI_TABULEIRO_CMD) == 0)
+		/* fim ativa: Testar MoverPeca */
+	}else if (strcmp(ComandoTeste, DESTROI_TABULEIRO_CMD) == 0)
 	{
-
+		/* Testar Destruir tabuleiro */
 		numLidos = LER_LerParametros("i",
 			&indexTabuleiro);
 
@@ -207,25 +206,26 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 			|| (!ValidarIndexTabuleiro(indexTabuleiro, NAO_VAZIO)))
 		{
 			return TST_CondRetParm;
-		} /* if */
+		} 
 
 		TAB_destroiTabuleiro(vtTabuleiros[indexTabuleiro]);
 		vtTabuleiros[indexTabuleiro] = NULL;
 
 		return TST_CondRetOK;
 
-	} /* fim ativa: Testar Destruir tabuleiro */
+	} /* if */ 
+	/* fim ativa: Testar Destruir tabuleiro */
 
 	return TST_CondRetNaoConhec;
 
-} /* Fim função: TLIS &Testar Tabuleiro */
+} /* Fim função: TSTTAB &Testar Tabuleiro */
 
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
 *
-*  $FC Função: TLIS -Validar indice de lista
+*  $FC Função: TSTTAB -Validar indice de lista
 *
 ***********************************************************************/
 
@@ -243,19 +243,18 @@ int ValidarIndexTabuleiro(int indexTabuleiro, int Modo)
 		if (vtTabuleiros[indexTabuleiro] != 0)
 		{
 			return FALSE;
-		} /* if */
-	}
-	else
+		}
+	}else
 	{
 		if (vtTabuleiros[indexTabuleiro] == 0)
 		{
 			return FALSE;
-		} /* if */
+		}
 	} /* if */
 
 	return TRUE;
 
-} /* Fim função: TTAB -Validar indice de tabuleiros */
+} /* Fim função: TSTTAB -Validar indice de tabuleiros */
 
 
 /********** Fim do módulo de implementação: TSTTAB Teste Tabuleiro **********/
