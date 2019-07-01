@@ -21,6 +21,11 @@
 =declararparm casa13 int 13
 =declararparm casa14 int 14
 =declararparm casa15 int 15
+=declararparm casa16 int 16
+=declararparm casa17 int 17
+=declararparm casa18 int 18
+=declararparm casa19 int 19
+=declararparm casa20 int 20
 
 
 =declararparm comum 	int 0
@@ -39,39 +44,53 @@
 =declararparm   FaltouMemoria  int  1
 =declararparm   ParmIncorretos int  2
 
-==Criar a Casa 0
-=criacomum casa0
+==Criar a Casa
+=criacomum casa0	
+=criacomum casa16
+=criacomum casa17	
+=criacomum casa18
+=criacomum casa19	
+=criacomum casa20	
 
+==Destruir Casa
+=destroicasa casa16	
+=destroicasa casa17	
+=destroicasa casa18	
 
 ==Criar a Casa Inicial
-=criainicial casa1
+=criainicial casa1	
+=criainicial casa19	
+=criainicial casa20
+=criainicial casa16	
+=criainicial casa17	
+=criainicial casa18
 
 ==Criar a Casa Segura
-=criasegura casa2 red
-=criasegura casa3 blue
-=criasegura casa4 green
-=criasegura casa5 yellow
+=criasegura casa2 red	
+=criasegura casa3 blue	
+=criasegura casa4 green	
+=criasegura casa5 yellow	
 
 ==Criar a Casa Final
-=criafinal casa6 red
-=criafinal casa7 blue
-=criafinal casa8 green
-=criafinal casa9 yellow
+=criafinal casa6 red	
+=criafinal casa7 blue	
+=criafinal casa8 green	
+=criafinal casa9 yellow	
 
 ==Criar a Casa Inicial
-=criainicial casa10
+=criainicial casa10	
 
 ==Criar a Casa Entrada
-=criaentrada casa11 red
-=criaentrada casa12 blue
-=criaentrada casa13 green
-=criaentrada casa14 yellow
+=criaentrada casa11 red	
+=criaentrada casa12 blue	
+=criaentrada casa13 green	
+=criaentrada casa14 yellow	
 =criaentrada casa15 yellow
 
 ==Destruir Casa
 =destroicasa casa15
 
-==Criar Tipo
+==Retorna Tipo
 =retornatipocasa casa0	comum	
 =retornatipocasa casa1	inicial
 =retornatipocasa casa2	segura	
@@ -87,7 +106,9 @@
 =retornatipocasa casa12	entrada
 =retornatipocasa casa13	entrada
 =retornatipocasa casa14	entrada
-		
+=retornatipocasa casa16	entrada
+=retornatipocasa casa17	entrada
+=retornatipocasa casa18 entrada		
 
 ==Retorna Cor
 =retornacorcasa casa0	white
@@ -105,3 +126,276 @@
 =retornacorcasa casa12	blue
 =retornacorcasa casa13	green
 =retornacorcasa casa14	yellow
+=retornacorcasa casa16	white
+=retornacorcasa casa17	white
+=retornacorcasa casa18  white
+
+==Destruir Casa
+=destroicasa casa0	
+=destroicasa casa1	
+=destroicasa casa2	
+=destroicasa casa3	
+=destroicasa casa4	
+=destroicasa casa5	
+=destroicasa casa6	
+=destroicasa casa7	
+=destroicasa casa8	
+=destroicasa casa9	
+=destroicasa casa10	
+=destroicasa casa11	
+=destroicasa casa12	
+=destroicasa casa13
+=destroicasa casa14	
+=destroicasa casa16	
+=destroicasa casa17
+=destroicasa casa18 
+
+==Criar a Casa	
+=criacomum casa0	
+=criacomum casa1	
+=criacomum casa2	
+=criacomum casa3	
+=criacomum casa4	
+=criacomum casa5	
+
+==Criar a Casa Final
+=retornatipocasa casa6	red	
+=retornatipocasa casa7	red	
+=retornatipocasa casa8	red	
+=retornatipocasa casa9	red	
+=retornatipocasa casa10 red	
+
+==Criar a Casa Entrada
+=criaentrada casa11	red	
+=criaentrada casa12	red	
+=criaentrada casa13	red	
+=criaentrada casa14	red	
+=criaentrada casa16	red	
+=criaentrada casa17	red	
+=criaentrada casa18 	red	
+
+==Retorna Tipo
+=retornatipocasa casa0	comum	
+=retornatipocasa casa1	comum	
+=retornatipocasa casa2	comum	
+=retornatipocasa casa3	comum	
+=retornatipocasa casa4	comum	
+=retornatipocasa casa5	comum	
+=retornatipocasa casa6	final
+=retornatipocasa casa7	final
+=retornatipocasa casa8	final
+=retornatipocasa casa9	final
+=retornatipocasa casa10	final
+=retornatipocasa casa11	entrada
+=retornatipocasa casa12	entrada
+=retornatipocasa casa13	entrada
+=retornatipocasa casa14	entrada
+=retornatipocasa casa16	entrada
+=retornatipocasa casa17	entrada
+=retornatipocasa casa18 entrada
+
+==Retorna Cor
+=retornacorcasa casa0	white
+=retornacorcasa casa1	white
+=retornacorcasa casa2	white
+=retornacorcasa casa3	white
+=retornacorcasa casa4	white
+=retornacorcasa casa5	white
+=retornacorcasa casa6	red
+=retornacorcasa casa7	red
+=retornacorcasa casa8	red
+=retornacorcasa casa9	red
+=retornacorcasa casa10	red
+=retornacorcasa casa11	red
+=retornacorcasa casa12	red
+=retornacorcasa casa13	red
+=retornacorcasa casa14	red
+=retornacorcasa casa16	red
+=retornacorcasa casa17	red
+=retornacorcasa casa18  red
+
+==Destruir Casa
+=destroicasa casa0	
+=destroicasa casa1	
+=destroicasa casa2	
+=destroicasa casa3	
+=destroicasa casa4	
+=destroicasa casa5	
+=destroicasa casa6	
+=destroicasa casa7	
+=destroicasa casa8	
+=destroicasa casa9	
+=destroicasa casa10	
+=destroicasa casa11	
+=destroicasa casa12	
+=destroicasa casa13
+=destroicasa casa14
+=destroicasa casa16	
+=destroicasa casa17
+=destroicasa casa18
+=destroicasa casa19
+=destroicasa casa20 
+
+==Criar a Casa Inicial	
+=criainicial casa0	
+=criainicial casa1	
+=criainicial casa2	
+=criainicial casa3	
+=criainicial casa4	
+=criainicial casa5	
+=criainicial casa6	
+=criainicial casa7	
+=criainicial casa8	
+=criainicial casa9	
+=criainicial casa10
+
+==Criar a Casa Segura
+=criasegura casa11	blue
+=criasegura casa12	blue
+=criasegura casa13	blue
+=criasegura casa14	blue
+=criasegura casa15	blue
+=criasegura casa16	green
+=criasegura casa17	green
+=criasegura casa18	green
+=criasegura casa19	green
+=criasegura casa20 	green
+
+==Retorna Tipo
+=retornatipocasa casa0	inicial
+=retornatipocasa casa1	inicial
+=retornatipocasa casa2	inicial
+=retornatipocasa casa3	inicial
+=retornatipocasa casa4	inicial
+=retornatipocasa casa5	inicial
+=retornatipocasa casa6	inicial
+=retornatipocasa casa7	inicial
+=retornatipocasa casa8	inicial
+=retornatipocasa casa9	inicial
+=retornatipocasa casa10	inicial
+=retornatipocasa casa11	segura
+=retornatipocasa casa12	segura
+=retornatipocasa casa13	segura
+=retornatipocasa casa14	segura
+=retornatipocasa casa15	segura
+=retornatipocasa casa16	segura
+=retornatipocasa casa17	segura
+=retornatipocasa casa18 segura
+=retornatipocasa casa19	segura
+=retornatipocasa casa20 segura
+
+==Retorna Cor
+=retornacorcasa casa0	white
+=retornacorcasa casa1	white
+=retornacorcasa casa2	white
+=retornacorcasa casa3	white
+=retornacorcasa casa4	white
+=retornacorcasa casa5	white
+=retornacorcasa casa6	white
+=retornacorcasa casa7	white
+=retornacorcasa casa8	white
+=retornacorcasa casa9	white
+=retornacorcasa casa10	white
+=retornacorcasa casa11	blue
+=retornacorcasa casa12	blue
+=retornacorcasa casa13	blue
+=retornacorcasa casa14	blue
+=retornacorcasa casa15	blue
+=retornacorcasa casa16	green
+=retornacorcasa casa17	green
+=retornacorcasa casa18  green
+=retornacorcasa casa19	green
+=retornacorcasa casa20  green
+
+==Destruir Casa
+=destroicasa casa0	
+=destroicasa casa1	
+=destroicasa casa2	
+=destroicasa casa3	
+=destroicasa casa4	
+=destroicasa casa5	
+=destroicasa casa6	
+=destroicasa casa7	
+=destroicasa casa8	
+=destroicasa casa9	
+=destroicasa casa10	
+=destroicasa casa11	
+=destroicasa casa12	
+=destroicasa casa13
+=destroicasa casa14
+=destroicasa casa15	
+=destroicasa casa16	
+=destroicasa casa17
+=destroicasa casa18
+=destroicasa casa19
+=destroicasa casa20
+
+==Criar a Casa Entrada
+=criaentrada casa0	yellow
+=criaentrada casa1	yellow
+=criaentrada casa2	yellow
+=criaentrada casa3	yellow
+=criaentrada casa4	yellow
+=criaentrada casa5	yellow
+=criaentrada casa6	yellow
+=criaentrada casa7	yellow
+=criaentrada casa8	yellow
+=criaentrada casa9	yellow
+=criaentrada casa10	yellow
+=criaentrada casa11 	red	
+=criaentrada casa11	red	
+=criaentrada casa12	red	
+=criaentrada casa13	red	
+=criaentrada casa14	red
+=criaentrada casa15	red
+=criaentrada casa16	red	
+=criaentrada casa17	red	
+=criaentrada casa18 	red 
+=criaentrada casa19	red 
+=criaentrada casa20	red
+
+==Retorna Tipo
+=retornatipocasa casa0	entrada
+=retornatipocasa casa1	entrada
+=retornatipocasa casa2	entrada
+=retornatipocasa casa3	entrada
+=retornatipocasa casa4	entrada
+=retornatipocasa casa5	entrada
+=retornatipocasa casa6	entrada
+=retornatipocasa casa7	entrada
+=retornatipocasa casa8	entrada
+=retornatipocasa casa9	entrada
+=retornatipocasa casa10	entrada
+=retornatipocasa casa11	entrada
+=retornatipocasa casa12	entrada
+=retornatipocasa casa13	entrada
+=retornatipocasa casa14	entrada
+=retornatipocasa casa15	entrada
+=retornatipocasa casa16	entrada
+=retornatipocasa casa17	entrada
+=retornatipocasa casa18 entrada
+=retornatipocasa casa19	entrada
+=retornatipocasa casa20 entrada
+
+==Retorna Cor
+=retornacorcasa casa0	yellow
+=retornacorcasa casa1	yellow
+=retornacorcasa casa2	yellow
+=retornacorcasa casa3	yellow
+=retornacorcasa casa4	yellow
+=retornacorcasa casa5	yellow
+=retornacorcasa casa6	yellow
+=retornacorcasa casa7	yellow
+=retornacorcasa casa8	yellow
+=retornacorcasa casa9	yellow
+=retornacorcasa casa10	yellow
+=retornacorcasa casa11	red
+=retornacorcasa casa12	red
+=retornacorcasa casa13	red
+=retornacorcasa casa14	red
+=retornacorcasa casa15	red
+=retornacorcasa casa16	red
+=retornacorcasa casa17	red
+=retornacorcasa casa18  red
+=retornacorcasa casa19	red
+=retornacorcasa casa20  red
