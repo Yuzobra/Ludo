@@ -4,20 +4,18 @@
 *  Arquivo gerado:              partida.c
 *  Letras identificadoras:      PAR
 *
-*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW
+*  Projeto: INF 1301 / Jogo de Ludo
 *
-*  Projeto: INF 1301 / 1628 Automatização dos testes de módulos C
-*  Gestor:  LES/DI/PUC-Rio
-*  Autores: avs
+*  Autores: yz - Yuri Zoel Brasil
+*			jp - Juliana Heluy do Prado
+*			vh - Victor Hugo Silva Lima
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*     4       avs   01/fev/2006 criar linguagem script simbólica
-*     3       avs   08/dez/2004 uniformização dos exemplos
-*     2       avs   07/jul/2003 unificação de todos os módulos em um só projeto
-*     1       avs   16/abr/2003 início desenvolvimento
-*
+*		4		yz		14/06/2019	Criação e correção da função possuiTorreNaCasaSeguinte
+*		3		yz		13/06/2019	Correção nas funções estáticas do módulo 
+*		2		yz		11/06/2019	Correção no tipo de retorno em rodada
+*		1		yz		05/06/2019	Primeira versão das funções exportadas do módulo 
 ***************************************************************************/
 
 #include "partida.h"
