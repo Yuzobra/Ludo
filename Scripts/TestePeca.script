@@ -118,3 +118,82 @@
 =retornacorpeca	peca14	yellow
 =retornacorpeca	peca15	yellow
 =retornacorpeca	peca16	yellow
+
+==Destruir Peca
+=destroipeca peca0
+=destroipeca peca1
+=destroipeca peca2
+=destroipeca peca3
+=destroipeca peca4
+=destroipeca peca5
+=destroipeca peca6
+=destroipeca peca7
+=destroipeca peca8
+=destroipeca peca9
+=destroipeca peca10
+=destroipeca peca11
+=destroipeca peca12
+=destroipeca peca13
+=destroipeca peca14
+=destroipeca peca15
+=destroipeca peca16
+=destroipeca peca17
+=destroipeca peca18
+=destroipeca peca19
+=destroipeca peca20
+
+==Criar Peca Red
+=criapeca peca0		red		p1
+=criapeca peca1		red		p1
+=criapeca peca2		red		p1
+=criapeca peca3		red		p1
+=criapeca peca4		red		p2
+=criapeca peca5		red		p2
+=criapeca peca6		red		p2
+=criapeca peca7		red		p2
+=criapeca peca8		red		p3
+=criapeca peca9		red		p3
+=criapeca peca10	red		p3
+=criapeca peca11	red		p3
+=criapeca peca12	10		p4
+=criapeca peca13	8		p4
+=criapeca peca14	-2		p4
+=criapeca peca15	7		p4
+=criapeca peca16	red		5
+=criapeca peca17	red		6
+=criapeca peca18	red		5.5
+=criapeca peca19	red		-2
+=criapeca peca20	red		-1
+
+==Retornar Numero Peca
+=retornanumpeca	peca0	p1
+=retornanumpeca	peca1	p1
+=retornanumpeca	peca2	p1
+=retornanumpeca	peca3	p1
+
+=retornanumpeca	peca4	p2
+=retornanumpeca	peca5	p2
+=retornanumpeca	peca6	p2
+=retornanumpeca	peca7	p2
+
+=retornanumpeca	peca8	p3
+=retornanumpeca	peca9	p3
+=retornanumpeca	peca12	p3
+=retornanumpeca	peca11	
+
+==Retorna Cor Peca
+=retornacorpeca	peca0	red
+=retornacorpeca	peca1	red
+=retornacorpeca	peca2	red
+=retornacorpeca	peca3	red
+
+=retornacorpeca	peca4	red
+=retornacorpeca	peca5	red
+=retornacorpeca	peca6	red
+=retornacorpeca	peca7	red
+
+=retornacorpeca	15	red
+=retornacorpeca	peca10	
+=retornacorpeca	peca11	
+
+

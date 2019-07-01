@@ -102,6 +102,11 @@
 ==Mover Peca em um tabuleiro montado
 =moverpeca tab1 1 red pec1 OK
 =moverpeca tab1 10 red pec1 OK
+=moverpeca tab2 57 yellow pec1 OK
+=moverpeca tab3 12 red pec2 OK
+=moverpeca tab3 1 green pec1 OK
+=moverpeca tab3 51 red pec4 OK
+=moverpeca tab3 14 green pec1 OK
 
 
 ==Mover Peca em um tabuleiro montado, mas que não existe tal cor
@@ -113,10 +118,14 @@
 
 ==Retorna Peca para Casa Inicial
 =retornacasainicial tab1 red pec1 OK
-
+=retornacasainicial tab3 red pec2 OK
+=retornacasainicial tab3 green pec1 OK
+=retornacasainicial tab3 red pec4 OK
+=retornacasainicial tab3 green pec1 OK
 
 ==Retorna Peca já na casa Inicial, para a casa Inicial
 =retornacasainicial tab1 red pec4 OK
+
 
 
 // fim

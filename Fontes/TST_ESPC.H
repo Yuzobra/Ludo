@@ -50,7 +50,7 @@
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: TST Condições de retorno do módulo de teste
+*  $TC Tipo de dados: TSTE Condições de retorno do módulo de teste
 *
 *
 *  $ED Descrição do tipo
