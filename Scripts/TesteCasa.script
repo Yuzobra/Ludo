@@ -56,6 +56,8 @@
 =destroicasa casa16	
 =destroicasa casa17	
 =destroicasa casa18	
+=destroicasa casa19	
+=destroicasa casa20
 
 ==Criar a Casa Inicial
 =criainicial casa1	
@@ -106,9 +108,9 @@
 =retornatipocasa casa12	entrada
 =retornatipocasa casa13	entrada
 =retornatipocasa casa14	entrada
-=retornatipocasa casa16	entrada
-=retornatipocasa casa17	entrada
-=retornatipocasa casa18 entrada		
+=retornatipocasa casa16	inicial
+=retornatipocasa casa17	inicial
+=retornatipocasa casa18 inicial
 
 ==Retorna Cor
 =retornacorcasa casa0	white
@@ -159,11 +161,11 @@
 =criacomum casa5	
 
 ==Criar a Casa Final
-=retornatipocasa casa6	red	
-=retornatipocasa casa7	red	
-=retornatipocasa casa8	red	
-=retornatipocasa casa9	red	
-=retornatipocasa casa10 red	
+=criafinal casa6	red	
+=criafinal casa7	red	
+=criafinal casa8	red	
+=criafinal casa9	red	
+=criafinal casa10 	red	
 
 ==Criar a Casa Entrada
 =criaentrada casa11	red	
@@ -343,7 +345,6 @@
 =criaentrada casa9	yellow
 =criaentrada casa10	yellow
 =criaentrada casa11 	red	
-=criaentrada casa11	red	
 =criaentrada casa12	red	
 =criaentrada casa13	red	
 =criaentrada casa14	red
