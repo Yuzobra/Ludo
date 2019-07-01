@@ -1,6 +1,6 @@
-// Script:    TesteCasa.script
+// Script:    TestePartida.script
 // Autor:     Victor Hugo Silva Lima
-// Data:      11/05/2019
+// Data:      22/06/2019
 // Propósito: Testar o módulo Partida
 //
 
@@ -10,6 +10,9 @@
 =declararparm casasAndadas0 int 0
 =declararparm casasAndadas1 int 1
 =declararparm casasAndadas2 int 2
+=declararparm casasAndadas3 int 3
+=declararparm casasAndadas4 int 4
+=declararparm casasAndadas5 int 5
 
 =declararparm red	int 0
 =declararparm blue 	int 1
@@ -28,17 +31,25 @@
 =inicializarvetorcasasandadas casasAndadas0
 =inicializarvetorcasasandadas casasAndadas1
 =inicializarvetorcasasandadas casasAndadas2
+=inicializarvetorcasasandadas casasAndadas3
+=inicializarvetorcasasandadas casasAndadas4
+=inicializarvetorcasasandadas casasAndadas5
+
 
 ==Preencher Vetor de casasAndadas
 =preenchervetorcasasandadas casasAndadas0  15 0 0 0  2 0 0 0  0 0 0 0  0 0 0 0
 =preenchervetorcasasandadas casasAndadas1  0 0 0 0  57 57 57 57  0 0 0 1  0 0 0 0
 =preenchervetorcasasandadas casasAndadas2  13 0 0 0  0 0 0 0  1 1 0 0  0 0 0 0
-
-
+=preenchervetorcasasandadas casasAndadas3  57 57 57 57  0 0 0 0  1 1 0 0  0 0 0 0
+=preenchervetorcasasandadas casasAndadas4  13 0 0 0  1 1 0 0 57 57 57 57 0 0 0 0
+=preenchervetorcasasandadas casasAndadas5  13 0 0 0 1 1 0 0  0 0 0 0  57 57 57 57
 
 ==Checar vitoria
 =checavitoria casasAndadas0 white
 =checavitoria casasAndadas1 blue
+=checavitoria casasAndadas3 red
+=checavitoria casasAndadas4 green
+=checavitoria casasAndadas5 yellow
 
 ==Verificar possiveis movimentos de uma cor
 =podemover casasAndadas1 red 1 tirarcasainicial
