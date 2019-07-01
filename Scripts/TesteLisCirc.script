@@ -1,7 +1,7 @@
-// Script:    TesteLista.script
+// Script:    TesteListaCirc.script
 // Autor:     Victor Hugo Silva Lima
-// Data:      02/abr/2008
-// Proposito: Testar superficialmente o modulo lista generica duplamente encadeada
+// Data:      11/05/2019
+// Proposito: Testar superficialmente o modulo lista generica duplamente encadeada circular
 //
 
 == Inicializar valores
@@ -27,16 +27,29 @@
 =criarlista      lista0
 =criarlista      lista1 
 
-== Verificar ObterValor relativo a lista vazia
-=obtervalorelem  lista0   "???"     pNULL
-=obtervalorelem  lista1   "???"     pNULL
-
 == Inserir elemento em lista vazia
-=inselemantes    lista0   str0   OK
+=inselemapos     lista0   str0   OK
 =obtervalorelem  lista0   str0   pNaoNULL
 =inselemantes    lista1   str1   OK
 =obtervalorelem  lista1   str1   pNaoNULL
 
+== Destruir lista não vazia
+=destruirlista   lista0
+=destruirlista   lista1
+
+== Criar as listas
+=criarlista      lista0
+=criarlista      lista1 
+
+== Verificar ObterValor relativo a lista vazia
+=obtervalorelem  lista0   "???"     pNULL
+=obtervalorelem  lista1   "???"     pNULL
+
+== Inserir elemento antes em lista vazia
+=inselemantes    lista0   str0   OK
+=obtervalorelem  lista0   str0   pNaoNULL
+=inselemantes    lista1   str1   OK
+=obtervalorelem  lista1   str1   pNaoNULL
 
 == Inserir elemento apos primeiro
 =inselemapos     lista0   str1   OK
@@ -60,6 +73,9 @@
 
 == Ver se a lista ficou vazia
 =obtervalorelem  lista0   "???"     pNULL
+
+== Esvaziar Lista ja vazia
+=esvaziarlista lista0
 
 == Destruir a lista
 =destruirlista   lista0
