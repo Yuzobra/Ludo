@@ -173,6 +173,8 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 		}
 
 		pecCondRet = PEC_destruirPeca(vtPecas[indexPeca]);
+		vtPecas[indexPeca] = NULL;
+			
 
 		return TST_CompararInt(PEC_condRetOk, pecCondRet,
 			"Erro ao destruir casa.");

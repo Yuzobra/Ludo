@@ -59,7 +59,7 @@ static int validarIndexCasa(int indexCasa, int Modo);
 *  $FC Função: TSTCAS &Testar Casa
 *
 *  $ED Descrição da função
-*     Podem ser criadas até 25 casas, identificadas pelos indices de 0 à 25.
+*     Podem ser criadas até 25 casas, identificadas pelos indices de 0 à 24.
 *
 *     Comandos disponíveis:
 *
@@ -271,7 +271,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste) {
 		} /* if */
 
 		casCondRet = CAS_destruirCasa(vtCasas[indexCasa]);
-
+		vtCasas[indexCasa] = NULL;
 		return TST_CompararInt(CAS_condRetOk, casCondRet,
 			"Erro ao destruir casa.");
 

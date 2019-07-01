@@ -747,4 +747,4 @@ COR_tpCor _DEBUGpossuiTorreNaCasaSeguinte(int* casasAndadas, COR_tpCor cor, int 
 
 #endif
 
-/********** Fim do módulo de implementação : PAR partida ********** /
+/********** Fim do módulo de implementação : PAR partida **********/
