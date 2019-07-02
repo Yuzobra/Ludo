@@ -10,3 +10,5 @@ Data		; Horas Trabalhadas	; Tipo da Tarefa		; Descrição da Tarefa
 01/05/2019	;  5h			; Revisar código do módulo	; Corrigindo erros do módulo casa e documentando os módulos peca e casa
 02/05/2019	;  4h			; Revisar código do módulo	; Documentando os módulos ListaCirc e Tabuleiro			
 12/05/2019	;  3h			; Revisar código do módulo	; Documentando os módulos de TSTPEC, TSTLisCirc e TSTCAS			
+02/06/2019	;  3h			; Especificar os módulos	; Documentando o módulos partida
+12/06/2019	;  2h			; Especificar os módulos	; Acabando de documentar o módulo partida

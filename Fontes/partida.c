@@ -86,8 +86,8 @@ PAR_CondRet PAR_iniciarPartida() {
 	if ((pDirName = _getcwd(buffer, 500)) != NULL) {
 		printf("%s\n", pDirName);
 	}/* if */
-	pModeConBat = (char*)malloc(strlen(pDirName) + 14); /* 14 vem de \\modeCon.bat + '\0'*/
-	pClearBat = (char*)malloc(strlen(pDirName) + 12); /* 12 vem de \\clear.bat + '\0'*/
+	pModeConBat = (char*)malloc(strlen(pDirName) + 23); /* 14 vem de \\Batches\\modeCon.bat + '\0'*/
+	pClearBat = (char*)malloc(strlen(pDirName) + 21); /* 12 vem de \\Batches\\clear.bat + '\0'*/
 
 	if (pModeConBat == NULL || pClearBat == NULL || pDirName == NULL) {
 		return PAR_condRetFaltouMemoria;
@@ -99,8 +99,8 @@ PAR_CondRet PAR_iniciarPartida() {
 
 	strcpy(pModeConBat, pDirName);
 	strcpy(pClearBat, pDirName);
-	strcat(pModeConBat, "\\modeCon.bat");
-	strcat(pClearBat, "\\clear.bat");
+	strcat(pModeConBat, "\\Batches\\modeCon.bat");
+	strcat(pClearBat, "\\Batches\\clear.bat");
 	system(pModeConBat);
 
 	TAB_criaTabuleiro(&pTab);
@@ -306,14 +306,7 @@ static int rodada(Tabuleiro* pTab, int* casasAndadas, COR_tpCor cor){
 		return -1;
 	}/* if */
 
-	printf("\n");
-	for (i = 0; i < 16; i++) {
-		printf("%d ", casasAndadas[i]);
-	}/* for */
-
-
-
-	printf("\nJogador ");
+	printf("Jogador ");
 	switch (cor) {
 	case COR_red:
 		printf("vermelho ");

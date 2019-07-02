@@ -9,5 +9,8 @@ if exist ..\Scripts\estatisticas.estat  del ..\Scripts\estatisticas.estat
 ..\Exe\testeLisCirc /s..\Scripts\TesteLisCirc    /l..\Exe\TesteLisCirc   /a..\Scripts\estatisticas
 ..\Exe\testeTabuleiro /s..\Scripts\TesteTabuleiro /l..\Exe\TesteTabuleiro /a..\Scripts\estatisticas
 ..\Exe\testePartida /s..\Scripts\TestePartida /l..\Exe\TestePartida /a..\Scripts\estatisticas
+..\Exe\TesteLisCircCount /s..\Scripts\TesteLisCircCount    /l..\Exe\TesteLisCircCount   /a..\Scripts\estatisticas
 
 ..\Ferramentas\exbestat /e..\Scripts\estatisticas
+
+

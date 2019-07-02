@@ -10,17 +10,19 @@ Na mesma pasta deste arquivo estão presentes:
 -arquivos .scripts contendo os casos de teste dos modulos,
 -arquivos executáveis dos testes dos módulos,
 -arquivos .exe auxiliares(compilebanner.exe,exbestat.exe,..),
--arquivos .bar coordenadores.
+
 
 
 Para realizar os teste dos modulos:
 
-1o: Extraia a pasta Ludo em /arcabouço/
 
-2o: Apague as extensões .txt dos arquivos no formato "xxx.exe.txt" e "yyy.bat.txt"
+1o: Apague as extensões .txt dos arquivos no formato "xxx.bat.txt", contidos na pasta "Batches"
 
-3o A:Se deseja utilizar os arquivos de teste já compilados e os scripts de test pré prontos, abra um cmd e navegue até o diretório. Execute o arquivo TestaTudo.bat.
 
-OU
+2o:É necessário ter o Visual studio 2010 ou Visual Studio 2008. Execute Tudo.bat.
 
-3o B:Se deseja recompilar os módulos, é necessário ter o Visual studio 2010 ou Visual Studio 2008. Execute vsvars32.bat em um cmd e então rode o arquivo Tudo.bat neste mesmo cmd.
+
+Para Jogar Ludo:
+
+Siga os dois passos descritos acima, e então execute o Ludo.exe. Vale notar que o endereço da pasta em que estes arquivos estão contidos não pode possuir nenhuma pasta com um espeço (" "), devido ao uso de uma biblioteca no modulo partida.
+

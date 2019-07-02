@@ -1,8 +1,10 @@
-// Script:    TesteListaCirc.script
+// Script:    TesteListaCircCount.script
 // Autor:     Victor Hugo Silva Lima
-// Data:      11/05/2019
-// Proposito: Testar superficialmente o modulo lista generica duplamente encadeada circular
+// Data:      30/06/2019
+// Proposito: Testar o modulo lista generica duplamente encadeada circular utilizando os contadores
 //
+
+
 
 == Inicializar valores
 =declararparm   lista0  int 0
@@ -23,19 +25,14 @@
 =declararparm   pNULL          int  0
 =declararparm   pNaoNULL       int  1
 
-== Criar as listas
-=criarlista      lista0
-=criarlista      lista1 
 
-== Inserir elemento em lista vazia
-=inselemapos     lista0   str0   OK
-=obtervalorelem  lista0   str0   pNaoNULL
-=inselemantes    lista1   str1   OK
-=obtervalorelem  lista1   str1   pNaoNULL
 
-== Destruir lista nÃ£o vazia
-=destruirlista   lista0
-=destruirlista   lista1
+== Iniciar contagem
+=inicializarcontadores  ""
+=lercontadores          "..\\Scripts\\LisCirc"
+=iniciarcontagem
+
+
 
 == Criar as listas
 =criarlista      lista0
@@ -55,7 +52,7 @@
 =inselemapos     lista0   str1   OK
 =obtervalorelem  lista0   str1   pNaoNULL
 
-== Inserir elemento antes do ltimo
+== Inserir elemento antes do ultimo
 =inselemantes    lista0   str2   OK
 =obtervalorelem  lista0   str2   pNaoNULL
 
@@ -84,7 +81,7 @@
 == Criar uma lista com dois elementos
 =criarlista      lista1 
 =inselemapos     lista1   str0   OK
-=inselemapos     lista1   str1   OK
+=inselemantes     lista1   str1   OK
 
 == Esvaziar a lista e ver se ficou vazia
 =esvaziarlista   lista1
@@ -124,7 +121,19 @@
 =avancarelem     lista2   1      OK
 
 
+==Avançar elemento 0 posiçoes
+=avancarelem	lista2 	0	OK
+
+
+
 == Destruir a lista
 =destruirlista   lista2
 
-// fim
+
+
+== Terminar controlar contadores
+=pararcontagem
+=verificarcontagens    0
+
+== Terminar contagem
+=terminarcontadores

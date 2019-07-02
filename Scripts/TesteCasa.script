@@ -1,7 +1,7 @@
 // Script:    TesteCasa.script
 // Autor:     Victor Hugo Silva Lima
 // Data:      11/05/2019
-// Propósito: Testar superficialmente o módulo Casa
+// Propósito: Testar o módulo Casa
 //
 
 ==Inicializar valores 

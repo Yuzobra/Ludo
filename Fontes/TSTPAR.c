@@ -13,9 +13,8 @@
 *			vh - Victor Hugo Silva Lima
 *
 *  $HA Histórico de evolução:
-*     Versão  Autor    Data     Observações
 *		Versão  Autor   Data		Observações
-*				yz		//2019	 Implementação do módulo de testes
+*		1		yz		15/06/2019	Implementação do módulo de testes
 *
 ***************************************************************************/
 

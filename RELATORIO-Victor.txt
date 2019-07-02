@@ -12,3 +12,6 @@ Data		; Horas Trabalhadas	; Tipo da Tarefa					; Descrição da Tarefa
 11/05/2019	;  1h			; redigir script de teste				; redigir .script de teste para tabuleiro	
 11/05/2019	;  40min		; revisar script de teste				; correção de casos no .script de teste do módulo tabuleiro
 12/05/2019	;  1h			; diagnosticar e corrigir os problemas encontrados	; correção dos erros encontrados no teste do módulo peca
+22/06/2019	;  2h			; redigir script de teste				; criação do .script de teste para partida
+29/06/2019	;  5h			; Instrumenção do modulo				; Adição do intrumento de contagem no módulo de lista circulo 
+30/06/2019	;  2h			; redigir script de teste				; criação do script de contagem do modulo partida

@@ -1,14 +1,13 @@
 @ECHO  OFF
 REM  Elimina todos os arquivos gerados
 
-del *.bak
+del ..\Ludo.exe
 del ..\Err\*.err
-del ..\Objetos\*.obj
 del ..\Fontes\*.lib
 del ..\Exe\*.log
 del ..\Composicao\*.make
-del ..\Objetos\*.build
 del ..\Composicao\*.list
+del ..\Objetos\*.build
+del ..\Objetos\*.obj
 del ..\Scripts\*.estat
-del *.pdb
 del ..\Exe\*.exe

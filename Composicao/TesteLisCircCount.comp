@@ -1,6 +1,6 @@
 [Diretorios]
 
-Nome        =  Ludo
+Nome        =  TesteLisCircCount
 PathDefault =  ..\Fontes
 err         =  ..\Err
 obj         =  ..\Objetos
@@ -8,17 +8,15 @@ c           =  ..\Fontes
 h           =  ..\Fontes
 
 [Modulos]
-Ludo
-Partida
-Tabuleiro
-Casa
-Peca
-Lista
-ListaCirc
+TSTLisCirc /D_DEBUG
+ListaCirc /D_DEBUG
 
 [BuildInicio]
-/OUT:..\Ludo.exe
+/OUT:..\Exe\TesteLisCircCount.exe
 /INCREMENTAL:NO
 /MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
 
 [Fim]

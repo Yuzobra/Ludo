@@ -1,0 +1,76 @@
+Cria lista vazia
+Falta memoria1\=-2
+Lista criada com sucesso
+Destruir lista
+Destruindo lista nao vazia
+Esvaziar lista
+Parametros de entrada incorretos1\=-2
+Iniciar a lista
+Lista vazia1
+Correr a lista1
+Corre a lista liberando os elementos
+Lista esvaziada
+
+Insercao de elemento antes
+Parametros de entrada incorretos2\=-2
+Falta memoria2\=-2
+Insercao quando elemento corrente nulo1
+Elemento corrente nao nulo
+Insercao quando a lista tem mais de um elemento
+Insercao quando a lista possui apenas um elemento
+Religacao da lista
+Elemento inserido com sucesso1
+
+Insercao de elemento apos
+Parametros de entrada incorretos3\=-2
+Criacao do elemento1
+Falta memoria3\=-2
+Insercao quando elemento corrente nulo2
+Insercao quando elemento corrente nao nulo
+Elemento inserido com sucesso2
+
+
+Parametros de entrada incorretos4\=-2
+Lista vazia2
+Valor obtido com sucesso
+
+Avanca para o proximo elemento
+Parametros de entrada incorretos5\=-2
+Lista vazia3\=-2
+
+Avanca para frente
+Passa para o proximo elemento
+Avanco concluido com sucesso1
+Avanca para tras
+Passa para o elemento anterior
+Avanco concluido com sucesso2
+Avanco concluido com sucesso3
+
+Excluir elemento
+Parametros de entrada incorretos6\=-2
+Lista vazia4\=-2
+Correr a lista2
+Lista tem mais de um elemento
+Lista tem apenas um elemento
+Elemento excluido com sucesso
+
+Procurar valor\=-1
+Parametros de entrada incorretos7\=-2
+Lista vazia5\=-2
+Valor encontrado com sucesso1\=-1
+Correr a lista3\=-1
+Valor encontrado com sucesso2\=-1
+Valor nao encontrado\=-1
+
+Parametros de entrada incorretos8\=-2
+Valor removido
+Espaco de memoria liberado
+
+Criar Elemento
+Parametros de entrada incorretos9\=-2
+Alocar espaço para elemento
+Falta memoria4\=-2
+Elemento criado com sucesso
+
+Parametros de entrada incorretos10\=-2
+Cabeca da lista limpada com sucesso

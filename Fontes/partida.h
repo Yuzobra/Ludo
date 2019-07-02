@@ -14,7 +14,10 @@
 *
 *  $HA Histórico de evolução:
 *		Versão	Autor	Data			Observações
-*		
+*		4		jp		12/06/2019		Documentação das funções de depuração
+*		3		yz		09/06/2019		Adição das externações das funções estaticas 
+*		2		jp		02/06/2019		Documentação das funções existentes
+*		1		yz		26/05/2019		Primeira criação do arquivo
 *		
 *
 *
@@ -27,7 +30,7 @@
 
 #define CASAS_ATE_ENTRADA 51
 
-#define _DEBUG
+
 
 /***** Declarações exportadas pelo módulo *****/
 

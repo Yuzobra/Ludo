@@ -8,8 +8,8 @@ c           =  ..\Fontes
 h           =  ..\Fontes
 
 [Modulos]
-TSTPAR
-Partida
+TSTPAR /D_DEBUG
+Partida /D_DEBUG
 Tabuleiro
 Casa
 Peca

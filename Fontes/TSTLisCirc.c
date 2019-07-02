@@ -39,7 +39,7 @@ static const char INS_ELEM_APOS_CMD[] = "=inselemapos";
 static const char OBTER_VALOR_CMD[] = "=obtervalorelem";
 static const char EXC_ELEM_CMD[] = "=excluirelem";
 static const char AVANCAR_ELEM_CMD[] = "=avancarelem";
-
+static const char PROCURAR_ELEM_CMD[] = "=procurarelem";
 
 #define TRUE  1
 #define FALSE 0

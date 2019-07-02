@@ -1,13 +1,14 @@
 // Script:    TesteLista.script
-// Autor:     Arndt von Staa
-// Data:      02/abr/2008
-// Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada
+// Autor:     Victor Hugo Silva Lima
+// Data:      11/05/2019
+// Propósito: Testar o módulo lista genérica duplamente encadeada
 //
 
 == Inicializar valores
 =declararparm   lista0  int 0
 =declararparm   lista1  int 1
 =declararparm   lista2  int 2
+=declararparm   lista3  int 3
 
 =declararparm   str0    string  "abcdefg"
 =declararparm   str1    string  "qwerty"
@@ -108,5 +109,48 @@
 
 == Destruir a lista
 =destruirlista   lista2
+
+== Criar a lista 3
+=criarlista      lista3
+=criarlista      lista1
+
+== Inserir elemento em lista vazia
+=inselemapos     lista3   str2   OK
+=obtervalorelem  lista3   str2   pNaoNULL
+=inselemantes    lista1   str0   OK
+=obtervalorelem  lista1   str0   pNaoNULL
+
+== Inserir elemento após primeiro
+=inselemapos     lista3   str1   OK
+=obtervalorelem  lista3   str1   pNaoNULL
+
+== Inserir elemento antes primeiro
+=inselemantes    lista1   str2   OK
+=obtervalorelem  lista1   str2   pNaoNULL
+
+== Excluir elemento
+=obtervalorelem  lista3   str1   pNaoNULL
+=excluirelem     lista3             OK
+=obtervalorelem  lista1   str2   pNaoNULL
+=excluirelem     lista1             OK
+
+== Excluir elemento
+=obtervalorelem  lista3   str2   pNaoNULL
+=excluirelem     lista3             OK
+=obtervalorelem  lista1   str0   pNaoNULL
+=excluirelem     lista1             OK
+
+== Avançar lista vazia
+=avancarelem     lista1   1     ListaVazia     
+
+== Ver se ficou vazia
+=obtervalorelem  lista3   "???"     pNULL
+
+== Ir Final lista Vazia
+=irfinal lista3
+
+== Destruir a lista
+=destruirlista   lista3
+=destruirlista   lista1
 
 // fim

@@ -11,5 +11,6 @@ gmake /b..\Composicao /cTesteLista /p..\Ferramentas\Gmake.parm
 gmake /b..\Composicao /cTesteLisCirc /p..\Ferramentas\Gmake.parm
 gmake /b..\Composicao /cTesteTabuleiro /p..\Ferramentas\Gmake.parm
 gmake /b..\Composicao /cTestePartida /p..\Ferramentas\Gmake.parm
-
+gmake /b..\Composicao /cTesteLisCircCount /p..\Ferramentas\Gmake.parm
+gmake /b..\Composicao /cLudo /p..\Ferramentas\Gmake.parm
 popd

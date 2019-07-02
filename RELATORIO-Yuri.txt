@@ -2,16 +2,19 @@ Aluno: Yuri Zoel Brasil
 Matrícula: 1710730
 
 
-Data		; Horas Trabalhadas		; Tipo da Tarefa			; Descrição da Tarefa
+Data		; Horas Trabalhadas		; Tipo da Tarefa					; Descrição da Tarefa
 
-21/04/2019	;  2h			; Estudar					; Estudar enunciado do trabalho	
-21/04/2019	;  2h			; Estudar					; Aprendendo a instalar/utilizar o arcabouço		
-21/04/2019	;  3h			; Especificar os módulos			; Decidido quais módulos seriam feitos e divisão do trabalho		
-23/04/2019	;  5h			; Revisar especificações			; Revisei as especificações dos módulos tabuleiro e LisCirc
-28/04/2019	;  12h			; Codificando o módulo				; Codifiquei o módulo LisCirc e tabuleiro		
-29/04/2019	;  5h			; Revisar código de módulo			; Corrigi os erros no módulo tabuleiro			
-09/05/2019	;  6h			; Codificando o módulo				; Codifiquei os módulos TSTPEC, TSTLIS, TSTCAS, TSTTAB
-09/05/2019	;  1h			; Revisar código de módulo			; Confirmei que os módulos TSTPEC, TSTLIS, TSTCAS e TSTTAB estavam funcionando				
-11/05/2019	;  2h			; Realizar os testes				; Realizei os testes em todos os módulos				
-11/05/2019	;  3h			; Diagnosticar e corrigir os problemas encontrados; Corrigi os erros encontrados no módulo tabuleiro e modulo lista circular				
-				
+21/04/2019	;  2h				; Estudar						; Estudar enunciado do trabalho	
+21/04/2019	;  2h				; Estudar						; Aprendendo a instalar/utilizar o arcabouço		
+21/04/2019	;  3h				; Especificar os módulos				; Decidido quais módulos seriam feitos e divisão do trabalho		
+23/04/2019	;  5h				; Revisar especificações				; Revisei as especificações dos módulos tabuleiro e LisCirc
+28/04/2019	;  12h				; Codificando o módulo					; Codifiquei o módulo LisCirc e tabuleiro		
+29/04/2019	;  5h				; Revisar código de módulo				; Corrigi os erros no módulo tabuleiro			
+09/05/2019	;  6h				; Codificando o módulo					; Codifiquei os módulos TSTPEC, TSTLIS, TSTCAS, TSTTAB
+09/05/2019	;  1h				; Revisar código de módulo				; Confirmei que os módulos TSTPEC, TSTLIS, TSTCAS e TSTTAB estavam funcionando				
+11/05/2019	;  2h				; Realizar os testes					; Realizei os testes em todos os módulos				
+11/05/2019	;  3h				; Diagnosticar e corrigir os problemas encontrados	; Corrigi os erros encontrados no módulo tabuleiro e modulo lista circular				
+26/05/2019	;  4h				; Codificando o módulo					; Codificação do modulo partida
+09/06/2019	;  2h				; Codificando o módulo					; Adição das externações das funções estaticas e correção da função possuiTorreNaCasaSeguinte
+15/06/2019	;  4h				; Codificando o módulo					; Implementação do modulo TSTPAR
+29/06/2019	;  1h				; Revisão de especificações				; Alterações finais nos arquivos de leia-me, especificação de requisitos, e diagramas de módulos

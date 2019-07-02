@@ -1,1 +1,1 @@
-mode con lines = 50 cols = 50
+mode con:cols=145 lines=70
